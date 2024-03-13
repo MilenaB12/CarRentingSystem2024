@@ -1,4 +1,5 @@
 ﻿using System;
+using CarRentingSystem.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,8 +15,8 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddAplicationDbContext(this IServiceCollection services, IConfiguration config)
         {
             var connectionString = config.GetConnectionString("DefaultConnection");
-            services.AddDbContext<HouseDbContext>(options =>
-                options.UseSqlite(connectionString));
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(connectionString));
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -33,7 +34,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 options.Password.RequireDigit = false;
                 options.Password.RequireUppercase = false;
             })
-            .AddEntityFrameworkStores<HouseDbContext>();
+            .AddEntityFrameworkStores<ApplicationDbContext>();
 
             return services;
         }

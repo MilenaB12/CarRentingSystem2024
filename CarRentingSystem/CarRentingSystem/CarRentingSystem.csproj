@@ -9,6 +9,9 @@
 
   <ItemGroup>
     <None Remove="Extensions\" />
+    <None Remove="Components\" />
+    <None Remove="Views\Shared\Components\" />
+    <None Remove="Views\Shared\Components\MainMenuComponent\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -25,5 +28,8 @@
 
   <ItemGroup>
     <Folder Include="Extensions\" />
+    <Folder Include="Components\" />
+    <Folder Include="Views\Shared\Components\" />
+    <Folder Include="Views\Shared\Components\MainMenuComponent\" />
   </ItemGroup>
 </Project>
