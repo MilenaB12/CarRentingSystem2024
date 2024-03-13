@@ -1,4 +1,6 @@
 ﻿<Properties StartupConfiguration="{C3B3A491-73A5-448B-840E-7C0965DC1008}|Default">
-  <MonoDevelop.Ide.ItemProperties.CarRentingSystem FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.CarRentingSystem.Infrastructure FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.CarRentingSystem.Core FirstBuild="True" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.CarRentingSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
 </Properties>
