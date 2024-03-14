@@ -1,0 +1,14 @@
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Infrastructure/bin/Debug/net6.0/CarRentingSystem.Infrastructure.deps.json
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Infrastructure/bin/Debug/net6.0/CarRentingSystem.Infrastructure.runtimeconfig.json
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Infrastructure/bin/Debug/net6.0/CarRentingSystem.Infrastructure.dll
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Infrastructure/bin/Debug/net6.0/CarRentingSystem.Infrastructure.pdb
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Infrastructure/obj/Debug/net6.0/CarRentingSystem.Infrastructure.csproj.AssemblyReference.cache
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Infrastructure/obj/Debug/net6.0/CarRentingSystem.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Infrastructure/obj/Debug/net6.0/CarRentingSystem.Infrastructure.AssemblyInfoInputs.cache
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Infrastructure/obj/Debug/net6.0/CarRentingSystem.Infrastructure.AssemblyInfo.cs
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Infrastructure/obj/Debug/net6.0/CarRentingSystem.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Infrastructure/obj/Debug/net6.0/CarRentingSystem.Infrastructure.dll
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Infrastructure/obj/Debug/net6.0/refint/CarRentingSystem.Infrastructure.dll
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Infrastructure/obj/Debug/net6.0/CarRentingSystem.Infrastructure.pdb
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Infrastructure/obj/Debug/net6.0/CarRentingSystem.Infrastructure.genruntimeconfig.cache
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Infrastructure/obj/Debug/net6.0/ref/CarRentingSystem.Infrastructure.dll

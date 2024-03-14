@@ -1220,6 +1220,36 @@
             "rid": "win"
           }
         }
+      },
+      "CarRentingSystem.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "CarRentingSystem.Infrastructure": "1.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.24"
+        },
+        "compile": {
+          "bin/placeholder/CarRentingSystem.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CarRentingSystem.Core.dll": {}
+        }
+      },
+      "CarRentingSystem.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.24",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.24",
+          "Microsoft.EntityFrameworkCore": "6.0.24",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.24"
+        },
+        "compile": {
+          "bin/placeholder/CarRentingSystem.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CarRentingSystem.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -2997,10 +3027,21 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "CarRentingSystem.Core/1.0.0": {
+      "type": "project",
+      "path": "../CarRentingSystem.Core/CarRentingSystem.Core.csproj",
+      "msbuildProject": "../CarRentingSystem.Core/CarRentingSystem.Core.csproj"
+    },
+    "CarRentingSystem.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../CarRentingSystem.Infrastructure/CarRentingSystem.Infrastructure.csproj",
+      "msbuildProject": "../CarRentingSystem.Infrastructure/CarRentingSystem.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "CarRentingSystem.Core >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 6.0.24",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.24",
       "Microsoft.AspNetCore.Identity.UI >= 6.0.24",
@@ -3036,7 +3077,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Core/CarRentingSystem.Core.csproj": {
+              "projectPath": "/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Core/CarRentingSystem.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

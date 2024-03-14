@@ -1,5 +1,5 @@
 ﻿using System;
-namespace CarRentingSystem.Constants
+namespace CarRentingSystem.Infrastructure.Constants
 {
 	public static class GeneralApplicationConstants
 	{

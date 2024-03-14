@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "CarRentingSystem/1.0.0": {
         "dependencies": {
+          "CarRentingSystem.Core": "1.0.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.24",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.24",
           "Microsoft.AspNetCore.Identity.UI": "6.0.24",
@@ -749,6 +750,26 @@
             "fileVersion": "4.700.19.56404"
           }
         }
+      },
+      "CarRentingSystem.Core/1.0.0": {
+        "dependencies": {
+          "CarRentingSystem.Infrastructure": "1.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.24"
+        },
+        "runtime": {
+          "CarRentingSystem.Core.dll": {}
+        }
+      },
+      "CarRentingSystem.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.24",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.24",
+          "Microsoft.EntityFrameworkCore": "6.0.24",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.24"
+        },
+        "runtime": {
+          "CarRentingSystem.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -1205,6 +1226,16 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
+    },
+    "CarRentingSystem.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CarRentingSystem.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

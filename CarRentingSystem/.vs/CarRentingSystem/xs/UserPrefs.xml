@@ -1,6 +1,35 @@
 ﻿<Properties StartupConfiguration="{C3B3A491-73A5-448B-840E-7C0965DC1008}|Default">
-  <MonoDevelop.Ide.ItemProperties.CarRentingSystem.Infrastructure FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.CarRentingSystem.Core FirstBuild="True" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../.microsoft/usersecrets/aspnet-CarRentingSystem-c0640683-c0c6-46a9-823d-12a18695b3a4/secrets.json">
+    <Files>
+      <File FileName="../../../.microsoft/usersecrets/aspnet-CarRentingSystem-c0640683-c0c6-46a9-823d-12a18695b3a4/secrets.json" Line="6" Column="1" />
+      <File FileName="CarRentingSystem.Infrastructure/Data/ApplicationDbContext.cs" Line="45" Column="66" />
+      <File FileName="CarRentingSystem/Program.cs" />
+      <File FileName="CarRentingSystem/Extensions/ServiceCollectionExtension.cs" />
+      <File FileName="CarRentingSystem/Components/MainMenuComponent.cs" />
+      <File FileName="CarRentingSystem.Infrastructure/Data/Models/Brand.cs" />
+      <File FileName="CarRentingSystem.Infrastructure/Data/Models/ApplicationUser.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CarRentingSystem" expanded="True">
+            <Node name="CarRentingSystem.Infrastructure">
+              <Node name="Constants" expanded="True" />
+              <Node name="Data" expanded="True">
+                <Node name="Models" expanded="True" />
+              </Node>
+              <Node name="Enums" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.CarRentingSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
