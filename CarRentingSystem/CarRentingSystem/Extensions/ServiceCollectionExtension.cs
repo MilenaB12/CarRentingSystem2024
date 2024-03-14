@@ -27,7 +27,7 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             services.AddDefaultIdentity<IdentityUser>(options =>
             {
-                options.SignIn.RequireConfirmedAccount = true;
+                options.SignIn.RequireConfirmedAccount = false;
                 options.Password.RequireNonAlphanumeric = true;
                 options.Password.RequireLowercase = true;
                 options.Password.RequireDigit = true;
