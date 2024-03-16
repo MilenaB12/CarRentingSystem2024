@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarRentingSystem.Infrastructure.Data;
 
-public class ApplicationDbContext : IdentityDbContext
+public class CarRentingDbContext : IdentityDbContext
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+    public CarRentingDbContext(DbContextOptions<CarRentingDbContext> options)
         : base(options)
     {
     }

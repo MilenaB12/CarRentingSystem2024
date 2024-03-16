@@ -22,11 +22,13 @@
     <None Remove="Data\Models\" />
     <None Remove="Constants\" />
     <None Remove="Enums\" />
+    <None Remove="Data\Common\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Data\Models\" />
     <Folder Include="Constants\" />
     <Folder Include="Enums\" />
+    <Folder Include="Data\Common\" />
   </ItemGroup>
 </Project>
