@@ -2,21 +2,25 @@
 using Microsoft.AspNetCore.Mvc;
 using CarRentingSystem.Models;
 using CarRentingSystem.Core.Models.Home;
+using CarRentingSystem.Core.Contracts;
 
 namespace CarRentingSystem.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly ICarService carService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger,
+                          ICarService _carService)
     {
         _logger = logger;
+        carService = _carService;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        var model = new IndexViewModel();
+        var model = await carService.LastCars();
 
         return View(model);
     }

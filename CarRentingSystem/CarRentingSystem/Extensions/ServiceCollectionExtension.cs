@@ -1,4 +1,7 @@
-﻿using CarRentingSystem.Infrastructure.Data;
+﻿using CarRentingSystem.Core.Contracts;
+using CarRentingSystem.Core.Services.Car;
+using CarRentingSystem.Infrastructure.Data;
+using CarRentingSystem.Infrastructure.Data.Common;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,14 +11,18 @@ namespace Microsoft.Extensions.DependencyInjection
 	{
         public static IServiceCollection AddAplicationServices(this IServiceCollection services)
         {
+            services.AddScoped<ICarService, CarService>();
+
             return services;
         }
         
         public static IServiceCollection AddAplicationDbContext(this IServiceCollection services, IConfiguration config)
         {
             var connectionString = config.GetConnectionString("DefaultConnection");
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<CarRentingDbContext>(options =>
                 options.UseSqlServer(connectionString));
+
+            services.AddScoped<IRepository, Repository>();
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -33,7 +40,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 options.Password.RequireDigit = true;
                 options.Password.RequireUppercase = true;
             })
-            .AddEntityFrameworkStores<ApplicationDbContext>();
+            .AddEntityFrameworkStores<CarRentingDbContext>();
 
             return services;
         }
