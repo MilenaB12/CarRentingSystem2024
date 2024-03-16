@@ -4,7 +4,7 @@ using CarRentingSystem.Core.Models.Home;
 using CarRentingSystem.Infrastructure.Data.Common;
 using Microsoft.EntityFrameworkCore;
 
-namespace CarRentingSystem.Core.Services.Car
+namespace CarRentingSystem.Core.Services
 {
     public class CarService : ICarService
     {

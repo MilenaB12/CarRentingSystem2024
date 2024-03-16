@@ -1,5 +1,5 @@
 ﻿using CarRentingSystem.Core.Contracts;
-using CarRentingSystem.Core.Services.Car;
+using CarRentingSystem.Core.Services;
 using CarRentingSystem.Infrastructure.Data;
 using CarRentingSystem.Infrastructure.Data.Common;
 using Microsoft.AspNetCore.Identity;
