@@ -19,6 +19,7 @@
     <None Remove="Models\Dealer\" />
     <None Remove="Contracts\" />
     <None Remove="Services\" />
+    <None Remove="Constants\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -27,5 +28,6 @@
     <Folder Include="Models\Dealer\" />
     <Folder Include="Contracts\" />
     <Folder Include="Services\" />
+    <Folder Include="Constants\" />
   </ItemGroup>
 </Project>
