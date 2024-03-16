@@ -8,8 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CarRentingSystem.Controllers
 {
-    [Authorize]
-    public class CarController : Controller
+    public class CarController : BaseController
     {
         [AllowAnonymous]
         [HttpGet] 

@@ -15,7 +15,7 @@ namespace CarRentingSystem.Core.Services
             repository = _repository;
         }
 
-        public async Task<IEnumerable<CarIndexServiceModel>> LastCars()
+        public async Task<IEnumerable<CarIndexServiceModel>> LastCarsAsync()
         {
             return await repository
                 .AllReadOnly<Infrastructure.Data.Models.Car>()

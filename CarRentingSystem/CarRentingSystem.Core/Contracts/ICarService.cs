@@ -5,7 +5,7 @@ namespace CarRentingSystem.Core.Contracts
 {
 	public interface ICarService
 	{
-		Task<IEnumerable<CarIndexServiceModel>> LastCars();
+		Task<IEnumerable<CarIndexServiceModel>> LastCarsAsync();
 	}
 }
 

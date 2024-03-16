@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 using static CarRentingSystem.Infrastructure.Constants.EntityValidationConstants.Dealer;
 
 
 namespace CarRentingSystem.Infrastructure.Data.Models
 {
+    [Index(nameof(PhoneNumber), IsUnique = true)]
     public class Dealer
     {
         [Key]
@@ -14,7 +16,7 @@ namespace CarRentingSystem.Infrastructure.Data.Models
         public string PhoneNumber { get; set; } = string.Empty;
 
         [Required]
-        public int UserId { get; set; }
+        public string UserId { get; set; } = string.Empty;
 
         public ApplicationUser User { get; set; } = null!;
 
