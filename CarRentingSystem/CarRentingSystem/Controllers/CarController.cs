@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using CarRentingSystem.Attributes;
+using CarRentingSystem.Core.Contracts;
 using CarRentingSystem.Core.Models.Car;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +13,19 @@ namespace CarRentingSystem.Controllers
 {
     public class CarController : BaseController
     {
+        private readonly ICarService carService;
+
+        private readonly IDealerService dealerService;
+
+
+        public CarController(
+            ICarService _carService,
+            IDealerService _dealerService)
+        {
+            carService = _carService;
+            dealerService = _dealerService;
+        }
+
         [AllowAnonymous]
         [HttpGet] 
         public async Task<IActionResult> All()
@@ -36,15 +52,38 @@ namespace CarRentingSystem.Controllers
         }
 
         [HttpGet]
+        [MustBeDealer]
         public async Task<IActionResult> Add()
         {
-            return View();
+            var model = new CarFormModel()
+            {
+                Categories = await carService.AllCategoriesAsync()
+            };
+
+            return View(model);
         }
 
         [HttpPost]
+        [MustBeDealer]
         public async Task<IActionResult> Add(CarFormModel model)
         {
-            return RedirectToAction(nameof(Details), new {id = 1});
+            if(await carService.CategoryExistsAsync(model.CategoryId) == false)
+            {
+                ModelState.TryAddModelError(nameof(model.CategoryId), "");
+            }
+
+            if(ModelState.IsValid == false)
+            {
+                model.Categories = await carService.AllCategoriesAsync();
+
+                return View(model);
+            }
+
+            int? dealerId = await dealerService.GetDealerIdAsync(User.Id());
+
+            int newCarId = await carService.CreateAsync(model, dealerId ?? 0);
+
+            return RedirectToAction(nameof(Details), new {id = newCarId });
         }
 
         [HttpGet]

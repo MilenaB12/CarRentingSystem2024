@@ -15,6 +15,7 @@
     <None Remove="Views\Car\" />
     <None Remove="Views\Dealer\" />
     <None Remove="Attributes\" />
+    <None Remove="ModelBinders\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -37,6 +38,7 @@
     <Folder Include="Views\Car\" />
     <Folder Include="Views\Dealer\" />
     <Folder Include="Attributes\" />
+    <Folder Include="ModelBinders\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CarRentingSystem.Core\CarRentingSystem.Core.csproj">

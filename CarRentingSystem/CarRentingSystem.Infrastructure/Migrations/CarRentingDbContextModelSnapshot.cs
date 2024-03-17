@@ -42,7 +42,7 @@ namespace CarRentingSystem.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Brands");
+                    b.ToTable("Brands", (string)null);
                 });
 
             modelBuilder.Entity("CarRentingSystem.Infrastructure.Data.Models.Car", b =>
@@ -98,7 +98,7 @@ namespace CarRentingSystem.Infrastructure.Migrations
 
                     b.HasIndex("DealerId");
 
-                    b.ToTable("Cars");
+                    b.ToTable("Cars", (string)null);
                 });
 
             modelBuilder.Entity("CarRentingSystem.Infrastructure.Data.Models.Category", b =>
@@ -116,7 +116,7 @@ namespace CarRentingSystem.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("CarRentingSystem.Infrastructure.Data.Models.Dealer", b =>
@@ -141,7 +141,7 @@ namespace CarRentingSystem.Infrastructure.Migrations
                     b.HasIndex("PhoneNumber")
                         .IsUnique();
 
-                    b.ToTable("Dealers");
+                    b.ToTable("Dealers", (string)null);
                 });
 
             modelBuilder.Entity("CarRentingSystem.Infrastructure.Data.Models.Reservation", b =>
@@ -165,7 +165,7 @@ namespace CarRentingSystem.Infrastructure.Migrations
 
                     b.HasIndex("DealerId");
 
-                    b.ToTable("Reservations");
+                    b.ToTable("Reservations", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
