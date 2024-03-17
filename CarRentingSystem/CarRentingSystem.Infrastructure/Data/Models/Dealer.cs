@@ -18,8 +18,6 @@ namespace CarRentingSystem.Infrastructure.Data.Models
         [Required]
         public string UserId { get; set; } = string.Empty;
 
-        public ApplicationUser User { get; set; } = null!;
-
         public IList<Car> Cars { get; set; } = new List<Car>();
 
         public IList<Reservation> Reservations { get; set; } = new List<Reservation>();

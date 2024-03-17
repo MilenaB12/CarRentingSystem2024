@@ -1226,6 +1226,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "CarRentingSystem.Infrastructure": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.24",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.24"
         },
         "compile": {

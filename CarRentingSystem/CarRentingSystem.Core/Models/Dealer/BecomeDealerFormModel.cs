@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using static CarRentingSystem.Core.Constants.MessageConstants;
 using static CarRentingSystem.Infrastructure.Constants.EntityValidationConstants.Dealer;
 namespace CarRentingSystem.Core.Models.Dealer

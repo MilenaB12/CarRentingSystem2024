@@ -7,6 +7,10 @@ namespace CarRentingSystem.Core.Constants
 
         public const string LengthMessage = "The field {0} must be between {2} and {1} characters long";
 
+        public const string PhoneExists = "Phone number already exist";
+
+        public const string HasRents = "You should have no rents to become an agent";
+
     }
 }
 

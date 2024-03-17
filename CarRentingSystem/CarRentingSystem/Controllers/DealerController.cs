@@ -1,7 +1,9 @@
 ﻿using System.Security.Claims;
+using CarRentingSystem.Attributes;
 using CarRentingSystem.Core.Contracts;
 using CarRentingSystem.Core.Models.Dealer;
 using Microsoft.AspNetCore.Mvc;
+using static CarRentingSystem.Core.Constants.MessageConstants;
 
 namespace CarRentingSystem.Controllers
 {
@@ -15,21 +17,35 @@ namespace CarRentingSystem.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Become()
+        [NotADealer]
+        public IActionResult Become()
         {
-            if(await dealerService.ExistsByIdAsync(User.Id()))
-            {
-                return BadRequest();
-            }
-
             var model = new BecomeDealerFormModel();
 
             return View(model);
         }
 
         [HttpPost]
+        [NotADealer]
         public async Task<IActionResult> Become(BecomeDealerFormModel model)
         {
+            if(await dealerService.UserWithPhoneNumberExistsAsync(User.Id()))
+            {
+                ModelState.AddModelError(nameof(model.PhoneNumber), PhoneExists);
+            }
+
+            if(await dealerService.UserHasRentsAsync(User.Id()))
+            {
+                ModelState.AddModelError("Error", HasRents);
+            }
+
+            if(ModelState.IsValid == false)
+            {
+                return View(model);
+            }
+
+            await dealerService.CreateAsync(User.Id(), model.PhoneNumber);
+
             return RedirectToAction(nameof(CarController.All), "Car");
         }
     }

@@ -14,6 +14,7 @@
     <None Remove="Views\Shared\Components\MainMenuComponent\" />
     <None Remove="Views\Car\" />
     <None Remove="Views\Dealer\" />
+    <None Remove="Attributes\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -35,6 +36,7 @@
     <Folder Include="Views\Shared\Components\MainMenuComponent\" />
     <Folder Include="Views\Car\" />
     <Folder Include="Views\Dealer\" />
+    <Folder Include="Attributes\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CarRentingSystem.Core\CarRentingSystem.Core.csproj">
