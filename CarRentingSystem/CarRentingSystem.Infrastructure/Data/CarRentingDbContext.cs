@@ -13,9 +13,8 @@ public class CarRentingDbContext : IdentityDbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-
         builder.Entity<Reservation>()
-        .HasKey(x => new { x.CarId, x.DealerId });
+.HasKey(x => new { x.CarId, x.DealerId });
         builder.Entity<Car>()
             .Property(c => c.Price)
             .HasPrecision(18, 2);

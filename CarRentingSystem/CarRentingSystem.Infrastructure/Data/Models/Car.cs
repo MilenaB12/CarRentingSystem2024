@@ -49,10 +49,9 @@ namespace CarRentingSystem.Infrastructure.Data.Models
         [Required]
         public int BrandId { get; set; }
 
-        [ForeignKey(nameof(CategoryId))]
+        [ForeignKey(nameof(BrandId))]
         public Brand Brand { get; set; } = null!;
 
         public string? RenterId { get; set; }
-
     }
 }
