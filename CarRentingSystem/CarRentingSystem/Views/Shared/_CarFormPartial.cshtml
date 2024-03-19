@@ -29,25 +29,43 @@
                 <span asp-validation-for="Price" class="small text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FuelType"></label>
-                <input asp-for="FuelType" class="form-control" placeholder="Fuel Type...">
-                <span asp-validation-for="FuelType" class="small text-danger"></span>
+                <label asp-for="FuelType" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="FuelType" asp-items="Html.GetEnumSelectList<CarRentingSystem.Infrastructure.Enums.FuelType>()">
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="FuelType" class="text-danger" />
+                </div>
             </div>
             <div class="form-group">
-                <label asp-for="GearType"></label>
-                <input asp-for="GearType" class="form-control" placeholder="Gear Type...">
-                <span asp-validation-for="GearType" class="small text-danger"></span>
+                <label asp-for="GearType" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="GearType" asp-items="Html.GetEnumSelectList<CarRentingSystem.Infrastructure.Enums.GearType>()">
+                        <option selected="selected" value="">Please select</option>
+                    </select>
+                    <span asp-validation-for="GearType" class="text-danger" />
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="CategoryId"></label>
                 <select asp-for="CategoryId" class="form-control">
                     @foreach (var category in Model.Categories)
-                    //AddSame for Brands(video from 1 March last one hour)
                     {
                         <option value="@category.Id">@category.Name</option>
                     }
                 </select>
                 <span asp-validation-for="CategoryId" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BrandId"></label>
+                <select asp-for="BrandId" class="form-control">
+                    @foreach (var brand in Model.Brands)
+                    {
+                        <option value="@brand.Id">@brand.Name</option>
+
+                    }
+                </select>
+                <span asp-validation-for="BrandId" class="small text-danger"></span>
             </div>
             <div class="text-center">
                 <input class="btn btn-primary mt-3" type="submit" value="Save" />

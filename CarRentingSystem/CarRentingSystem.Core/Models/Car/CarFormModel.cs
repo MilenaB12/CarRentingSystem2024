@@ -27,11 +27,12 @@ namespace CarRentingSystem.Core.Models.Car
         public string Description { get; set; } = string.Empty;
 
         [Required(ErrorMessage = RequireMessage)]
+        [EnumDataType(typeof(FuelType))]
         [Range(FuelMinValue, FuelMaxValue)]
-        public FuelType FuelType { get; set; }
+        public FuelType FuelType { get; set; } 
 
         [Required(ErrorMessage = RequireMessage)]
-        [Range(GearMinValue, GearMaxValue)]
+        [EnumDataType(typeof(GearType))]
         public GearType GearType { get; set; }
 
         [Required(ErrorMessage = RequireMessage)]
@@ -50,6 +51,9 @@ namespace CarRentingSystem.Core.Models.Car
 
         public IEnumerable<CarCategoryServiceModel> Categories { get; set; }
             = new List<CarCategoryServiceModel>();
+
+        public IEnumerable<CarBrandServiceModel> Brands { get; set; }
+    = new List<CarBrandServiceModel>();
 
 
     }

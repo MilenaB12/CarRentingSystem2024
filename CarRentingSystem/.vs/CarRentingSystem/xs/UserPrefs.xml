@@ -6,44 +6,49 @@
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../.microsoft/usersecrets/aspnet-CarRentingSystem-c0640683-c0c6-46a9-823d-12a18695b3a4/secrets.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CarRentingSystem/Views/Shared/_CarFormPartial.cshtml">
     <Files>
-      <File FileName="CarRentingSystem.Infrastructure/Data/Common/IRepository.cs" Line="11" Column="32" />
-      <File FileName="CarRentingSystem.Infrastructure/Data/Common/Repository.cs" Line="33" Column="1" />
-      <File FileName="CarRentingSystem.Core/Services/DealerService.cs" Line="20" Column="30" />
-      <File FileName="CarRentingSystem.Infrastructure/Data/Models/Category.cs" />
-      <File FileName="CarRentingSystem.Infrastructure/Data/Models/Car.cs" />
-      <File FileName="CarRentingSystem.Core/Models/Dealer/BecomeDealerFormModel.cs" Line="8" Column="17" />
-      <File FileName="CarRentingSystem.Core/Constants/MessageConstants.cs" />
-      <File FileName="CarRentingSystem.Infrastructure/Data/Models/Dealer.cs" Line="19" Column="59" />
-      <File FileName="CarRentingSystem/Attributes/NotADealerAttribute.cs" Line="22" Column="1" />
-      <File FileName="CarRentingSystem/Controllers/DealerController.cs" Line="39" Column="41" />
-      <File FileName="CarRentingSystem/Views/Dealer/Become.cshtml" Line="27" Column="19" />
-      <File FileName="../../../.microsoft/usersecrets/aspnet-CarRentingSystem-c0640683-c0c6-46a9-823d-12a18695b3a4/secrets.json" Line="6" Column="1" />
-      <File FileName="CarRentingSystem.Infrastructure/Migrations/20240317132604_InitialMigration.cs" Line="1" Column="1" />
+      <File FileName="CarRentingSystem.Infrastructure/Data/Common/IRepository.cs" />
+      <File FileName="CarRentingSystem.Infrastructure/Data/Models/Car.cs" Line="13" Column="1" />
+      <File FileName="CarRentingSystem.Core/Models/Car/CarFormModel.cs" Line="49" Column="27" />
+      <File FileName="CarRentingSystem/Views/Shared/_CarFormPartial.cshtml" Line="40" Column="9" />
+      <File FileName="CarRentingSystem/Views/Car/Add.cshtml" Line="15" Column="2" />
+      <File FileName="CarRentingSystem/Components/MainMenuComponent.cs" Line="1" Column="1" />
+      <File FileName="CarRentingSystem/Views/Shared/Components/MainMenuComponent/Default.cshtml" Line="14" Column="6" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CarRentingSystem" expanded="True">
-            <Node name="CarRentingSystem" selected="True">
+            <Node name="CarRentingSystem" expanded="True">
               <Node name="Attributes" expanded="True" />
+              <Node name="Components" expanded="True" />
               <Node name="Controllers" expanded="True" />
+              <Node name="ModelBinders" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Dealer" expanded="True" />
+                <Node name="Car" expanded="True" />
+                <Node name="Shared" expanded="True">
+                  <Node name="Components" expanded="True">
+                    <Node name="MainMenuComponent" expanded="True" />
+                  </Node>
+                </Node>
               </Node>
             </Node>
-            <Node name="CarRentingSystem.Core">
+            <Node name="CarRentingSystem.Core" expanded="True">
+              <Node name="Constants" expanded="True" />
+              <Node name="Contracts" expanded="True" />
               <Node name="Models" expanded="True">
-                <Node name="Dealer" expanded="True" />
+                <Node name="Car" expanded="True" />
               </Node>
               <Node name="Services" expanded="True" />
             </Node>
             <Node name="CarRentingSystem.Infrastructure" expanded="True">
+              <Node name="Constants" expanded="True" />
               <Node name="Data" expanded="True">
                 <Node name="Common" expanded="True" />
                 <Node name="Models" expanded="True" />
               </Node>
+              <Node name="Migrations" expanded="True" />
             </Node>
           </Node>
         </State>

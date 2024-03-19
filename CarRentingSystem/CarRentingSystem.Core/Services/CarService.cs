@@ -17,6 +17,17 @@ namespace CarRentingSystem.Core.Services
             repository = _repository;
         }
 
+        public async Task<IEnumerable<CarBrandServiceModel>> AllBrandsAsync()
+        {
+            return await repository.AllReadOnly<Brand>()
+                .Select(b => new CarBrandServiceModel()
+                {
+                    Id = b.Id,
+                    Name = b.Name,
+                    Model = b.Model
+                }).ToListAsync();
+        }
+
         public async Task<IEnumerable<CarCategoryServiceModel>> AllCategoriesAsync()
         {
             return await repository.AllReadOnly<Category>()
@@ -25,6 +36,12 @@ namespace CarRentingSystem.Core.Services
                     Id = c.Id,
                     Name = c.Name
                 }).ToListAsync();
+        }
+
+        public async Task<bool> BrandExistsAsync(int brandId)
+        {
+            return await repository.AllReadOnly<Brand>()
+                .AnyAsync(b => b.Id == brandId);
         }
 
         public async Task<bool> CategoryExistsAsync(int categoryId)
@@ -46,7 +63,7 @@ namespace CarRentingSystem.Core.Services
                 Year = model.Year,
                 FuelType = model.FuelType,
                 GearType = model.GearType,
-                BrandId = model.BrandId,
+                BrandId = model.BrandId
             };
 
             await repository.AddAsync(car);
@@ -58,9 +75,9 @@ namespace CarRentingSystem.Core.Services
         public async Task<IEnumerable<CarIndexServiceModel>> LastCarsAsync()
         {
             return await repository
-                .AllReadOnly<Infrastructure.Data.Models.Car>()
-                .OrderByDescending(c => c.Id)
+                .AllReadOnly<Car>()
                 .Take(3)
+                .OrderByDescending(c => c.Id)
                 .Select(c => new CarIndexServiceModel()
                 {
                     Id = c.Id,

@@ -10,7 +10,11 @@ namespace CarRentingSystem.Core.Contracts
 
         Task<IEnumerable<CarCategoryServiceModel>> AllCategoriesAsync();
 
+        Task<IEnumerable<CarBrandServiceModel>> AllBrandsAsync();
+
         Task<bool>CategoryExistsAsync(int categoryId);
+
+        Task<bool> BrandExistsAsync(int brandId);
 
         Task<int> CreateAsync(CarFormModel model, int dealerId);
 

@@ -57,7 +57,8 @@ namespace CarRentingSystem.Controllers
         {
             var model = new CarFormModel()
             {
-                Categories = await carService.AllCategoriesAsync()
+                Categories = await carService.AllCategoriesAsync(),
+                Brands = await carService.AllBrandsAsync()
             };
 
             return View(model);
@@ -72,9 +73,15 @@ namespace CarRentingSystem.Controllers
                 ModelState.TryAddModelError(nameof(model.CategoryId), "");
             }
 
-            if(ModelState.IsValid == false)
+            if (await carService.BrandExistsAsync(model.BrandId) == false)
+            {
+                ModelState.TryAddModelError(nameof(model.BrandId), "");
+            }
+
+            if (ModelState.IsValid == false)
             {
                 model.Categories = await carService.AllCategoriesAsync();
+                model.Brands = await carService.AllBrandsAsync();
 
                 return View(model);
             }
