@@ -1,5 +1,6 @@
 ﻿using System;
 using CarRentingSystem.Core.Contracts;
+using CarRentingSystem.Core.Enumerations;
 using CarRentingSystem.Core.Models.Car;
 using CarRentingSystem.Core.Models.Home;
 using CarRentingSystem.Infrastructure.Data.Common;
@@ -15,6 +16,57 @@ namespace CarRentingSystem.Core.Services
         public CarService(IRepository _repository)
         {
             repository = _repository;
+        }
+
+        public async Task<CarQueryServiceModel> AllAsync(string? category = null, string? searchTerm = null, CarSorting sorting = CarSorting.Newest, int currentPage = 1, int carsPerPage = 1)
+        {
+            var carsToshow = repository.AllReadOnly<Car>();
+
+            if (category != null)
+            {
+                carsToshow = carsToshow
+                    .Where(c => c.Category.Name == category);
+            }
+
+            if (searchTerm != null)
+            {
+                string normalizedSearchTerm = searchTerm.ToLower();
+
+                carsToshow = carsToshow
+                    .Where(h => h.Color.ToLower().Contains(normalizedSearchTerm));
+            }
+
+            carsToshow = sorting switch
+            {
+                CarSorting.Price => carsToshow
+                .OrderBy(c => c.Price),
+                CarSorting.NotRented => carsToshow
+                    .OrderBy(c => c.RenterId == null)
+                    .ThenByDescending(c => c.Id),
+                _ => carsToshow
+                    .OrderByDescending(c => c.Id)
+            };
+
+            var cars = await carsToshow
+                .Skip((currentPage - 1) * carsPerPage)
+                .Take(carsPerPage)
+                .Select(c => new CarServiceModel()
+                {
+                    Id = c.Id,
+                    Color = c.Color,
+                    Brand = c.Brand.Name,
+                    ImageUrl = c.ImageUrl,
+                    Price = c.Price,
+                    IsRented = c.RenterId != null
+                }).ToListAsync();
+
+            int totalCars = await carsToshow.CountAsync();
+
+            return new CarQueryServiceModel()
+            {
+                Cars = cars,
+                TotalCarsCount = totalCars
+            };
         }
 
         public async Task<IEnumerable<CarBrandServiceModel>> AllBrandsAsync()
@@ -36,6 +88,14 @@ namespace CarRentingSystem.Core.Services
                     Id = c.Id,
                     Name = c.Name
                 }).ToListAsync();
+        }
+
+        public async Task<IEnumerable<string>> AllCategoriesNamesAsync()
+        {
+            return await repository.AllReadOnly<Category>()
+                .Select(c => c.Name)
+                .Distinct()
+                .ToListAsync();
         }
 
         public async Task<bool> BrandExistsAsync(int brandId)

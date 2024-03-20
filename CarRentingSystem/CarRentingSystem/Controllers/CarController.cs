@@ -28,11 +28,20 @@ namespace CarRentingSystem.Controllers
 
         [AllowAnonymous]
         [HttpGet] 
-        public async Task<IActionResult> All()
+        public async Task<IActionResult> All([FromQuery]AllCarsQueryModel query)
         {
-            var model = new AllCarsQueryModel();
+            var model = await carService.AllAsync(
+                query.Category,
+                query.SearchTerm,
+                query.Sorting,
+                query.CurrentPage,
+                query.CarsPerPage);
 
-            return View(model);
+            query.TotalCarsCount = model.TotalCarsCount;
+            query.Cars = model.Cars;
+            query.Categories = await carService.AllCategoriesNamesAsync();
+
+            return View(query);
         }
 
         [HttpGet]

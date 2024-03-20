@@ -21,6 +21,7 @@
     <None Remove="Contracts\" />
     <None Remove="Services\" />
     <None Remove="Constants\" />
+    <None Remove="Enumerations\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -30,5 +31,6 @@
     <Folder Include="Contracts\" />
     <Folder Include="Services\" />
     <Folder Include="Constants\" />
+    <Folder Include="Enumerations\" />
   </ItemGroup>
 </Project>
