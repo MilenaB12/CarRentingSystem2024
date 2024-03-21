@@ -16,7 +16,7 @@ namespace CarRentingSystem.Infrastructure.Data.Models
         [MaxLength(ColorMaxLength)]
         public string Color { get; set; } = string.Empty;
 
-        public int Year { get; set; }
+        public int? Year { get; set; }
 
         [Required]
         [MaxLength(DescriptionMaxLength)]

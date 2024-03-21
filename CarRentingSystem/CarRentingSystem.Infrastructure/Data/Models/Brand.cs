@@ -12,10 +12,6 @@ namespace CarRentingSystem.Infrastructure.Data.Models
         [MaxLength(NameMaxLength)]
         public string Name { get; set; } = string.Empty;
 
-        [Required]
-        [MaxLength(ModelMaxLength)]
-        public string Model { get; set; } = string.Empty;
-
         public IList<Car> Cars { get; set; } = new List<Car>();
     }
 }

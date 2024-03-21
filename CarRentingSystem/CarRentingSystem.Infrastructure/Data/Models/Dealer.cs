@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using static CarRentingSystem.Infrastructure.Constants.EntityValidationConstants.Dealer;
 
@@ -17,6 +19,9 @@ namespace CarRentingSystem.Infrastructure.Data.Models
 
         [Required]
         public string UserId { get; set; } = string.Empty;
+
+        [ForeignKey(nameof(UserId))]
+        public IdentityUser User { get; set; } = null!;
 
         public IList<Car> Cars { get; set; } = new List<Car>();
 
