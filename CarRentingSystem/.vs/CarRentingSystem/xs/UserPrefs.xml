@@ -1,30 +1,30 @@
 ﻿<Properties StartupConfiguration="{C3B3A491-73A5-448B-840E-7C0965DC1008}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.CarRentingSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CarRentingSystem.Infrastructure/Data/Models/Reservation.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CarRentingSystem.Core/Services/CarService.cs">
     <Files>
-      <File FileName="CarRentingSystem.Core/Models/Car/CarFormModel.cs" Line="50" Column="41" />
-      <File FileName="CarRentingSystem/Views/Shared/_CarFormPartial.cshtml" Line="61" Column="37" />
-      <File FileName="CarRentingSystem.Core/Services/CarService.cs" Line="40" Column="1" />
-      <File FileName="CarRentingSystem.Core/Contracts/ICarService.cs" Line="17" Column="46" />
-      <File FileName="CarRentingSystem/Controllers/CarController.cs" Line="75" Column="1" />
-      <File FileName="CarRentingSystem.Infrastructure/Data/Models/Brand.cs" Line="1" Column="1" />
-      <File FileName="CarRentingSystem.Core/Models/Car/CarBrandServiceModel.cs" Line="10" Column="49" />
-      <File FileName="CarRentingSystem.Infrastructure/Data/SeedDb/SeedData.cs" Line="37" Column="23" />
-      <File FileName="CarRentingSystem.Infrastructure/Enums/GearType.cs" Line="6" Column="15" />
-      <File FileName="CarRentingSystem.Infrastructure/Data/SeedDb/UserConfiguration.cs" Line="8" Column="57" />
-      <File FileName="CarRentingSystem.Infrastructure/Data/SeedDb/DealerConfiguration.cs" Line="12" Column="1" />
-      <File FileName="CarRentingSystem.Infrastructure/Data/SeedDb/CategoryConfiguration.cs" Line="12" Column="1" />
-      <File FileName="CarRentingSystem.Infrastructure/Data/SeedDb/BrandConfiguration.cs" Line="14" Column="38" />
       <File FileName="CarRentingSystem.Infrastructure/Data/CarRentingDbContext.cs" Line="1" Column="51" />
       <File FileName="CarRentingSystem.Infrastructure/Data/Models/Car.cs" Line="53" Column="30" />
-      <File FileName="CarRentingSystem.Infrastructure/Migrations/20240319134405_changed.cs" Line="47" Column="6" />
-      <File FileName="CarRentingSystem.Infrastructure/Migrations/CarRentingDbContextModelSnapshot.cs" Line="1" Column="1" />
-      <File FileName="CarRentingSystem.Infrastructure/Data/Models/Reservation.cs" Line="6" Column="2" />
+      <File FileName="CarRentingSystem.Core/Models/Car/CarFormModel.cs" Line="38" Column="50" />
+      <File FileName="CarRentingSystem.Core/Enumerations/CarSorting.cs" Line="9" Column="3" />
+      <File FileName="CarRentingSystem.Infrastructure/Constants/EntityValidationConstants.cs" Line="1" Column="1" />
+      <File FileName="CarRentingSystem.Core/Contracts/ICarService.cs" Line="29" Column="61" />
+      <File FileName="CarRentingSystem/Controllers/CarController.cs" Line="42" Column="72" />
+      <File FileName="CarRentingSystem.Core/Models/Car/AllCarsQueryModel.cs" Line="20" Column="34" />
+      <File FileName="CarRentingSystem/Views/Car/All.cshtml" Line="97" Column="35" />
+      <File FileName="CarRentingSystem/Views/Shared/_CarPartial.cshtml" Line="8" Column="22" />
+      <File FileName="CarRentingSystem.Core/Models/Car/CarServiceModel.cs" Line="12" Column="22" />
+      <File FileName="CarRentingSystem.Core/Services/CarService.cs" Line="42" Column="29" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CarRentingSystem">
+          <Node name="CarRentingSystem" expanded="True">
             <Node name="CarRentingSystem" expanded="True">
               <Node name="Components" expanded="True" />
               <Node name="Controllers" expanded="True" />
@@ -42,6 +42,7 @@
             <Node name="CarRentingSystem.Core" expanded="True">
               <Node name="Constants" expanded="True" />
               <Node name="Contracts" expanded="True" />
+              <Node name="Enumerations" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="Car" expanded="True" />
                 <Node name="Home" expanded="True" />
@@ -62,10 +63,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.CarRentingSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

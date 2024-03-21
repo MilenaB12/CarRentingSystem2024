@@ -18,7 +18,7 @@ namespace CarRentingSystem.Core.Models.Car
         public string Color { get; set; } = string.Empty;
 
         [Range(YearMinValue, YearMaxValue)]
-        public int Year { get; set; }
+        public int? Year { get; set; }
 
         [Required(ErrorMessage = RequireMessage)]
         [StringLength(DescriptionMaxLength,

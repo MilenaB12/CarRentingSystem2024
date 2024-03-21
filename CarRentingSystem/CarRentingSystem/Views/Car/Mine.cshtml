@@ -1,4 +1,4 @@
-﻿@model AllCarsQueryModel
+﻿@model IEnumerable<CarServiceModel>
 @{
 
     ViewData["Title"] = "My Cars";
@@ -6,4 +6,16 @@
 
 <h2 class="text-center">@ViewData["Title"]</h2>
 <hr />
+
+@if (Model.Any() == false)
+{
+        <h3 class="text-center">You have no cars yet!</h3>
+}
+
+<div class="row">
+    @foreach (var item in Model)
+     {
+            <partial name="_CarPartial" model="@item" />
+     }
+</div>
 

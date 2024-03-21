@@ -39,7 +39,7 @@ namespace CarRentingSystem.Controllers
 
             query.TotalCarsCount = model.TotalCarsCount;
             query.Cars = model.Cars;
-            query.Categories = await carService.AllCategoriesNamesAsync();
+            query.Categories = await carService.AllCategoriesNamesAsync ();
 
             return View(query);
         }
@@ -47,15 +47,31 @@ namespace CarRentingSystem.Controllers
         [HttpGet]
         public async Task<IActionResult> Mine()
         {
-            var model = new AllCarsQueryModel();
+            var userId = User.Id();
+            IEnumerable<CarServiceModel> model;
+
+            if (await dealerService.ExistsByIdAsync(userId))
+            {
+                int dealerId = await dealerService.GetDealerIdAsync(userId) ?? 0;
+                model = await carService.AllCarsByDealerIdAsync(dealerId);
+            }
+            else
+            {
+                model = await carService.AllCarsByUserId(userId);
+            }
 
             return View(model);
         }
 
         [HttpGet]
-        public async Task<IActionResult> Details()
+        public async Task<IActionResult> Details(int id)
         {
-            var model = new CarDetailsViewModel();
+            if (await carService.ExistsAsync(id) == false)
+            {
+                return BadRequest();
+            }
+
+            var model = await carService.CarDetailsByIdAsync(id);
 
             return View(model);
         }

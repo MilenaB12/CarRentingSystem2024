@@ -50,15 +50,8 @@ namespace CarRentingSystem.Core.Services
             var cars = await carsToshow
                 .Skip((currentPage - 1) * carsPerPage)
                 .Take(carsPerPage)
-                .Select(c => new CarServiceModel()
-                {
-                    Id = c.Id,
-                    Color = c.Color,
-                    Brand = c.Brand.Name,
-                    ImageUrl = c.ImageUrl,
-                    Price = c.Price,
-                    IsRented = c.RenterId != null
-                }).ToListAsync();
+                .ProjectToCarServiceModel()
+                .ToListAsync();
 
             int totalCars = await carsToshow.CountAsync();
 
@@ -76,8 +69,23 @@ namespace CarRentingSystem.Core.Services
                 {
                     Id = b.Id,
                     Name = b.Name,
-                    Model = b.Model
                 }).ToListAsync();
+        }
+
+        public async Task<IEnumerable<CarServiceModel>> AllCarsByDealerIdAsync(int dealerId)
+        {
+            return await repository.AllReadOnly<Car>()
+                .Where(c => c.DealerId == dealerId)
+                .ProjectToCarServiceModel()
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<CarServiceModel>> AllCarsByUserId(string userId)
+        {
+            return await repository.AllReadOnly<Car>()
+                .Where(c => c.RenterId == userId)
+                .ProjectToCarServiceModel()
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<CarCategoryServiceModel>> AllCategoriesAsync()
@@ -102,6 +110,31 @@ namespace CarRentingSystem.Core.Services
         {
             return await repository.AllReadOnly<Brand>()
                 .AnyAsync(b => b.Id == brandId);
+        }
+
+        public async Task<CarDetailsServiceModel> CarDetailsByIdAsync(int id)
+        {
+            return await repository.AllReadOnly<Car>()
+                .Where(c => c.Id == id)
+                .Select(c => new CarDetailsServiceModel()
+                {
+                    Id = c.Id,
+                    ImageUrl = c.ImageUrl,
+                    Dealer = new Models.Dealer.DealerServiceModel()
+                    {
+                        Email = c.Dealer.User.Email,
+                        PhoneNumber = c.Dealer.PhoneNumber
+                    },
+                    Category = c.Category.Name,
+                    Brand = c.Brand.Name,
+                    Color = c.Color,
+                    Description = c.Description,
+                    FuelType = c.FuelType.ToString(),
+                    GearType = c.GearType.ToString(),
+                    Price = c.Price,
+                    Year = c.Year,
+                    IsRented = c.RenterId != null!
+                }).FirstAsync();
         }
 
         public async Task<bool> CategoryExistsAsync(int categoryId)
@@ -130,6 +163,12 @@ namespace CarRentingSystem.Core.Services
             await repository.SaveChangesAsync();
 
             return car.Id;
+        }
+
+        public async Task<bool> ExistsAsync(int id)
+        {
+            return await repository.AllReadOnly<Car>()
+                .AnyAsync(c => c.Id == id);
         }
 
         public async Task<IEnumerable<CarIndexServiceModel>> LastCarsAsync()
