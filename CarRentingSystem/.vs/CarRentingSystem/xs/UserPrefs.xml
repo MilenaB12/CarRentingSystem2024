@@ -1,30 +1,25 @@
 ﻿<Properties StartupConfiguration="{C3B3A491-73A5-448B-840E-7C0965DC1008}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.CarRentingSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CarRentingSystem.Core/Services/CarService.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CarRentingSystem/Views/Car/Details.cshtml">
     <Files>
-      <File FileName="CarRentingSystem.Infrastructure/Data/CarRentingDbContext.cs" Line="1" Column="51" />
-      <File FileName="CarRentingSystem.Infrastructure/Data/Models/Car.cs" Line="53" Column="30" />
-      <File FileName="CarRentingSystem.Core/Models/Car/CarFormModel.cs" Line="38" Column="50" />
-      <File FileName="CarRentingSystem.Core/Enumerations/CarSorting.cs" Line="9" Column="3" />
-      <File FileName="CarRentingSystem.Infrastructure/Constants/EntityValidationConstants.cs" Line="1" Column="1" />
-      <File FileName="CarRentingSystem.Core/Contracts/ICarService.cs" Line="29" Column="61" />
-      <File FileName="CarRentingSystem/Controllers/CarController.cs" Line="42" Column="72" />
-      <File FileName="CarRentingSystem.Core/Models/Car/AllCarsQueryModel.cs" Line="20" Column="34" />
-      <File FileName="CarRentingSystem/Views/Car/All.cshtml" Line="97" Column="35" />
-      <File FileName="CarRentingSystem/Views/Shared/_CarPartial.cshtml" Line="8" Column="22" />
-      <File FileName="CarRentingSystem.Core/Models/Car/CarServiceModel.cs" Line="12" Column="22" />
-      <File FileName="CarRentingSystem.Core/Services/CarService.cs" Line="42" Column="29" />
+      <File FileName="CarRentingSystem.Core/Contracts/ICarService.cs" Line="35" Column="26" />
+      <File FileName="CarRentingSystem.Core/Services/CarService.cs" Line="136" Column="51" />
+      <File FileName="CarRentingSystem/Controllers/CarController.cs" Line="74" Column="66" />
+      <File FileName="CarRentingSystem.Core/Extensions/IQuerableExtension.cs" Line="9" Column="69" />
+      <File FileName="CarRentingSystem.Core/Models/Car/CarDetailsServiceModel.cs" Line="10" Column="54" />
+      <File FileName="CarRentingSystem.Core/Models/Dealer/DealerServiceModel.cs" Line="13" Column="6" />
+      <File FileName="CarRentingSystem.Infrastructure/Data/Models/Brand.cs" Line="9" Column="8" />
+      <File FileName="CarRentingSystem.Core/Models/Car/CarFormModel.cs" Line="21" Column="20" />
+      <File FileName="CarRentingSystem.Infrastructure/Data/Models/Car.cs" Line="19" Column="20" />
+      <File FileName="CarRentingSystem/Views/Car/Details.cshtml" Line="26" Column="14" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CarRentingSystem" expanded="True">
+          <Node name="CarRentingSystem">
             <Node name="CarRentingSystem" expanded="True">
               <Node name="Components" expanded="True" />
               <Node name="Controllers" expanded="True" />
@@ -43,8 +38,10 @@
               <Node name="Constants" expanded="True" />
               <Node name="Contracts" expanded="True" />
               <Node name="Enumerations" expanded="True" />
+              <Node name="Extensions" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="Car" expanded="True" />
+                <Node name="Dealer" expanded="True" />
                 <Node name="Home" expanded="True" />
               </Node>
               <Node name="Services" expanded="True" />
@@ -63,4 +60,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.CarRentingSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
 </Properties>

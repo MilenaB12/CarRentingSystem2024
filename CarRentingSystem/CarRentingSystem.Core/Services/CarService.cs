@@ -165,10 +165,61 @@ namespace CarRentingSystem.Core.Services
             return car.Id;
         }
 
+        public async Task EditAsync(int carId, CarFormModel model)
+        {
+            var car = await repository.GetByIdAsync<Car>(carId);
+
+            if (car != null)
+            {
+                car.Color = model.Color;
+                car.CategoryId = model.CategoryId;
+                car.Description = model.Description;
+                car.ImageUrl = model.ImageUrl;
+                car.Price = model.Price;
+                car.FuelType = model.FuelType;
+                car.GearType = model.GearType;
+                car.BrandId = model.BrandId;
+
+                await repository.SaveChangesAsync();
+            }
+        }
+
         public async Task<bool> ExistsAsync(int id)
         {
             return await repository.AllReadOnly<Car>()
                 .AnyAsync(c => c.Id == id);
+        }
+
+        public async Task<CarFormModel?> GetCarFormModelByIdAsync(int id)
+        {
+            var car = await repository.AllReadOnly<Car>()
+                .Where(c => c.Id == id)
+                .Select(c => new CarFormModel()
+                {
+                    Color = c.Color,
+                    CategoryId = c.CategoryId,
+                    BrandId = c.BrandId,
+                    Description = c.Description,
+                    FuelType = c.FuelType,
+                    GearType = c.GearType,
+                    ImageUrl = c.ImageUrl,
+                    Price = c.Price,
+                    Year = c.Year
+                }).FirstOrDefaultAsync();
+
+            if (car != null)
+            {
+                car.Categories = await AllCategoriesAsync();
+                car.Brands = await AllBrandsAsync();
+            }
+
+            return car;     
+        }
+
+        public async Task<bool> HasDealerWithIdAsync(int carId, string userId)
+        {
+            return await repository.AllReadOnly<Car>()
+                .AnyAsync(c => c.Id == carId && c.Dealer.UserId == userId);
         }
 
         public async Task<IEnumerable<CarIndexServiceModel>> LastCarsAsync()

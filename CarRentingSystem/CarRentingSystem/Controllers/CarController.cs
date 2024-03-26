@@ -95,12 +95,12 @@ namespace CarRentingSystem.Controllers
         {
             if(await carService.CategoryExistsAsync(model.CategoryId) == false)
             {
-                ModelState.TryAddModelError(nameof(model.CategoryId), "");
+                ModelState.TryAddModelError(nameof(model.CategoryId), "Category does not exist");
             }
 
             if (await carService.BrandExistsAsync(model.BrandId) == false)
             {
-                ModelState.TryAddModelError(nameof(model.BrandId), "");
+                ModelState.TryAddModelError(nameof(model.BrandId), "Brand does not exist");
             }
 
             if (ModelState.IsValid == false)
@@ -121,7 +121,17 @@ namespace CarRentingSystem.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            var model = new CarFormModel();
+            if (await carService.ExistsAsync(id) == false)
+            {
+                return BadRequest();
+            }
+
+            if (await carService.HasDealerWithIdAsync(id, User.Id()) == false)
+            {
+                return Unauthorized();
+            }
+
+            var model = await carService.GetCarFormModelByIdAsync(id);
 
             return View(model);
         }
@@ -129,7 +139,37 @@ namespace CarRentingSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, CarFormModel model)
         {
-            return RedirectToAction(nameof(Details), new { id = 1 });
+            if (await carService.ExistsAsync(id) == false)
+            {
+                return BadRequest();
+            }
+
+            if (await carService.HasDealerWithIdAsync(id, User.Id()) == false)
+            {
+                return Unauthorized();
+            }
+
+            if (await carService.CategoryExistsAsync(model.CategoryId) == false)
+            {
+                ModelState.TryAddModelError(nameof(model.CategoryId), "Category does not exist");
+            }
+
+            if (await carService.BrandExistsAsync(model.BrandId) == false)
+            {
+                ModelState.TryAddModelError(nameof(model.BrandId), "Brand does not exist");
+            }
+
+            if (ModelState.IsValid == false)
+            {
+                model.Categories = await carService.AllCategoriesAsync();
+                model.Brands = await carService.AllBrandsAsync();
+
+                return View(model);
+            }
+
+            await carService.EditAsync(id, model);
+
+            return RedirectToAction(nameof(Details), new { id = id });
         }
 
         [HttpGet]
