@@ -1,6 +1,7 @@
 ﻿using System;
 using CarRentingSystem.Core.Contracts;
 using CarRentingSystem.Core.Enumerations;
+using CarRentingSystem.Core.Exceptions;
 using CarRentingSystem.Core.Models.Car;
 using CarRentingSystem.Core.Models.Home;
 using CarRentingSystem.Infrastructure.Data.Common;
@@ -165,6 +166,12 @@ namespace CarRentingSystem.Core.Services
             return car.Id;
         }
 
+        public async Task DeleteAsync(int carId)
+        {
+            await repository.DeleteAsync<Car>(carId);
+            await repository.SaveChangesAsync();
+        }
+
         public async Task EditAsync(int carId, CarFormModel model)
         {
             var car = await repository.GetByIdAsync<Car>(carId);
@@ -222,6 +229,32 @@ namespace CarRentingSystem.Core.Services
                 .AnyAsync(c => c.Id == carId && c.Dealer.UserId == userId);
         }
 
+        public async Task<bool> IsRentedAsync(int carId)
+        {
+            bool result = false;
+            var car = await repository.GetByIdAsync<Car>(carId);
+
+            if (car != null)
+            {
+                result = car.RenterId != null;
+            }
+
+            return result;
+        }
+
+        public async Task<bool> IsRentedByIUserWithIdAsync(int carId, string userId)
+        {
+            bool result = false;
+            var house = await repository.GetByIdAsync<Car>(carId);
+
+            if (house != null)
+            {
+                result = house.RenterId == userId;
+            }
+
+            return result;
+        }
+
         public async Task<IEnumerable<CarIndexServiceModel>> LastCarsAsync()
         {
             return await repository
@@ -234,6 +267,33 @@ namespace CarRentingSystem.Core.Services
                     ImageUrl = c.ImageUrl,
                     Brand = c.Brand.Name
                 }).ToListAsync();
+        }
+
+        public async Task LeaveAsync(int carId, string userId)
+        {
+            var car = await repository.GetByIdAsync<Car>(carId);
+
+            if (car != null)
+            {
+                if (car.RenterId != userId)
+                {
+                    throw new UnauthorizedActionException("The user is not the renter");
+                }
+
+                car.RenterId = null;
+                await repository.SaveChangesAsync();
+            }
+        }
+
+        public async Task RentAsync(int id, string userId)
+        {
+            var car = await repository.GetByIdAsync<Car>(id);
+
+            if (car != null)
+            {
+                car.RenterId = userId;
+                await repository.SaveChangesAsync();
+            }
         }
     }
 }

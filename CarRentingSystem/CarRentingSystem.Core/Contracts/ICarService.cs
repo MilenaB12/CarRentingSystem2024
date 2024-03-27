@@ -42,8 +42,15 @@ namespace CarRentingSystem.Core.Contracts
 
         Task<CarFormModel?> GetCarFormModelByIdAsync(int id);
 
+        Task DeleteAsync(int carId);
 
+        Task<bool> IsRentedAsync(int carId);
 
+        Task<bool> IsRentedByIUserWithIdAsync(int carId, string userId);
+
+        Task RentAsync(int id, string userId);
+
+        Task LeaveAsync(int carId, string userId);
     }
 }
 

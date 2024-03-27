@@ -23,6 +23,7 @@
     <None Remove="Constants\" />
     <None Remove="Enumerations\" />
     <None Remove="Extensions\" />
+    <None Remove="Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -34,5 +35,6 @@
     <Folder Include="Constants\" />
     <Folder Include="Enumerations\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
 </Project>
