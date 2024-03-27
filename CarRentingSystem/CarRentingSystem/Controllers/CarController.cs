@@ -243,7 +243,7 @@ namespace CarRentingSystem.Controllers
 
             await carService.RentAsync(id, User.Id());
 
-            return RedirectToAction(nameof(Mine));
+            return RedirectToAction(nameof(All));
         }
 
         [HttpPost]

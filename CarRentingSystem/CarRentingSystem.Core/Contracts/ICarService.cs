@@ -46,7 +46,7 @@ namespace CarRentingSystem.Core.Contracts
 
         Task<bool> IsRentedAsync(int carId);
 
-        Task<bool> IsRentedByIUserWithIdAsync(int carId, string userId);
+        Task<bool> IsRentedByUserWithIdAsync(int carId, string userId);
 
         Task RentAsync(int id, string userId);
 

@@ -232,6 +232,7 @@ namespace CarRentingSystem.Core.Services
         public async Task<bool> IsRentedAsync(int carId)
         {
             bool result = false;
+
             var car = await repository.GetByIdAsync<Car>(carId);
 
             if (car != null)
@@ -242,7 +243,7 @@ namespace CarRentingSystem.Core.Services
             return result;
         }
 
-        public async Task<bool> IsRentedByIUserWithIdAsync(int carId, string userId)
+        public async Task<bool> IsRentedByUserWithIdAsync(int carId, string userId)
         {
             bool result = false;
             var house = await repository.GetByIdAsync<Car>(carId);
