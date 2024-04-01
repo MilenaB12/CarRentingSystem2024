@@ -266,7 +266,7 @@ namespace CarRentingSystem.Core.Services
                 {
                     Id = c.Id,
                     ImageUrl = c.ImageUrl,
-                    Brand = c.Brand.Name
+                    Brand = c.Brand.Name,
                 }).ToListAsync();
         }
 

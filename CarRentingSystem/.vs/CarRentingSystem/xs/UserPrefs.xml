@@ -1,29 +1,36 @@
 ﻿<Properties StartupConfiguration="{C3B3A491-73A5-448B-840E-7C0965DC1008}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="CarRentingSystem/Views/Car/Details.cshtml">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.CarRentingSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CarRentingSystem/Views/Home/Error401.cshtml">
     <Files>
-      <File FileName="CarRentingSystem.Core/Contracts/ICarService.cs" Line="35" Column="26" />
-      <File FileName="CarRentingSystem.Core/Services/CarService.cs" Line="136" Column="51" />
-      <File FileName="CarRentingSystem/Controllers/CarController.cs" Line="74" Column="66" />
-      <File FileName="CarRentingSystem.Core/Extensions/IQuerableExtension.cs" Line="9" Column="69" />
-      <File FileName="CarRentingSystem.Core/Models/Car/CarDetailsServiceModel.cs" Line="10" Column="54" />
-      <File FileName="CarRentingSystem.Core/Models/Dealer/DealerServiceModel.cs" Line="13" Column="6" />
-      <File FileName="CarRentingSystem.Infrastructure/Data/Models/Brand.cs" Line="9" Column="8" />
-      <File FileName="CarRentingSystem.Core/Models/Car/CarFormModel.cs" Line="21" Column="20" />
-      <File FileName="CarRentingSystem.Infrastructure/Data/Models/Car.cs" Line="19" Column="20" />
-      <File FileName="CarRentingSystem/Views/Car/Details.cshtml" Line="26" Column="14" />
+      <File FileName="CarRentingSystem.Core/Contracts/ICarService.cs" Line="49" Column="45" />
+      <File FileName="CarRentingSystem.Core/Services/CarService.cs" Line="235" Column="1" />
+      <File FileName="CarRentingSystem/Controllers/CarController.cs" Line="264" Column="1" />
+      <File FileName="CarRentingSystem.Core/Models/Car/CarDetailsViewModel.cs" Line="12" Column="31" />
+      <File FileName="CarRentingSystem.Infrastructure/Data/Common/IRepository.cs" Line="15" Column="56" />
+      <File FileName="CarRentingSystem.Infrastructure/Data/Common/Repository.cs" Line="51" Column="14" />
+      <File FileName="CarRentingSystem/Views/Car/Add.cshtml" Line="10" Column="1" />
+      <File FileName="CarRentingSystem/Views/Car/Edit.cshtml" Line="15" Column="2" />
+      <File FileName="CarRentingSystem/Views/Car/Delete.cshtml" Line="15" Column="12" />
+      <File FileName="CarRentingSystem.Core/Exceptions/UnauthorizedActionException.cs" Line="10" Column="6" />
+      <File FileName="CarRentingSystem/Program.cs" Line="30" Column="2" />
+      <File FileName="CarRentingSystem/Controllers/HomeController.cs" Line="46" Column="34" />
+      <File FileName="CarRentingSystem/Views/Home/Error.cshtml" Line="9" Column="103" />
+      <File FileName="CarRentingSystem/Views/Home/Error400.cshtml" Line="11" Column="55" />
+      <File FileName="CarRentingSystem/Views/Home/Error401.cshtml" Line="14" Column="4" />
+      <File FileName="CarRentingSystem/Properties/launchSettings.json" Line="19" Column="7" />
+      <File FileName="CarRentingSystem/Views/Home/Error404.cshtml" Line="13" Column="45" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CarRentingSystem">
+          <Node name="CarRentingSystem" expanded="True">
             <Node name="CarRentingSystem" expanded="True">
               <Node name="Components" expanded="True" />
               <Node name="Controllers" expanded="True" />
+              <Node name="Extensions" expanded="True" />
               <Node name="ModelBinders" expanded="True" />
+              <Node name="Properties" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Car" expanded="True" />
                 <Node name="Home" expanded="True" />
@@ -38,6 +45,7 @@
               <Node name="Constants" expanded="True" />
               <Node name="Contracts" expanded="True" />
               <Node name="Enumerations" expanded="True" />
+              <Node name="Exceptions" expanded="True" />
               <Node name="Extensions" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="Car" expanded="True" />
@@ -60,7 +68,9 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.CarRentingSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

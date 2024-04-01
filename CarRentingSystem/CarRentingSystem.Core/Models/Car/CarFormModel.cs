@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using static CarRentingSystem.Core.Constants.MessageConstants;
 using static CarRentingSystem.Infrastructure.Constants.EntityValidationConstants.Car;
+using CarRentingSystem.Core.Contracts;
 
 namespace CarRentingSystem.Core.Models.Car
 {
@@ -54,8 +55,6 @@ namespace CarRentingSystem.Core.Models.Car
 
         public IEnumerable<CarBrandServiceModel> Brands { get; set; }
     = new List<CarBrandServiceModel>();
-
-
     }
 }
 

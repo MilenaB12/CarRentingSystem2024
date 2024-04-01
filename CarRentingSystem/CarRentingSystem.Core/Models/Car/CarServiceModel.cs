@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using CarRentingSystem.Core.Contracts;
 using CarRentingSystem.Infrastructure.Data.Models;
 using static CarRentingSystem.Core.Constants.MessageConstants;
 using static CarRentingSystem.Infrastructure.Constants.EntityValidationConstants.Car;

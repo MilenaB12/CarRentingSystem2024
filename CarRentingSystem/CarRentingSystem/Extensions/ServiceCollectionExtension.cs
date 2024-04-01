@@ -13,6 +13,7 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             services.AddScoped<ICarService, CarService>();
             services.AddScoped<IDealerService, DealerService>();
+            services.AddScoped<IStatisticService, StatisticService>();
 
 
             return services;

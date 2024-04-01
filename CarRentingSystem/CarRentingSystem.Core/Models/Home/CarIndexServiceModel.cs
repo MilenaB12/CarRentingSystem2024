@@ -1,4 +1,5 @@
 ﻿using System;
+using CarRentingSystem.Core.Contracts;
 using CarRentingSystem.Infrastructure.Data.Models;
 
 namespace CarRentingSystem.Core.Models.Home
@@ -10,8 +11,6 @@ namespace CarRentingSystem.Core.Models.Home
 		public string Brand { get; set; } = null!;
 
         public string ImageUrl { get; set; } = string.Empty;
-
-
     }
 }
 

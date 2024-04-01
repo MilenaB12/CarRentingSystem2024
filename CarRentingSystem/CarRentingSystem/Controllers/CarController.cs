@@ -121,7 +121,7 @@ namespace CarRentingSystem.Controllers
 
             int newCarId = await carService.CreateAsync(model, dealerId ?? 0);
 
-            return RedirectToAction(nameof(Details), new {id = newCarId });
+            return RedirectToAction(nameof(Details), new {id = newCarId});
         }
 
         [HttpGet]
@@ -175,7 +175,7 @@ namespace CarRentingSystem.Controllers
 
             await carService.EditAsync(id, model);
 
-            return RedirectToAction(nameof(Details), new { id = id });
+            return RedirectToAction(nameof(Details), new { id});
         }
 
         [HttpGet]
