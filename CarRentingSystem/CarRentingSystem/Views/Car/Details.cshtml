@@ -1,5 +1,6 @@
 ﻿@model CarDetailsServiceModel
-
+@inject IDealerService dealerService
+@inject ICarService carService
 @{
     ViewBag.Title = "Car Details";
 }
@@ -36,18 +37,22 @@
             <div class="form-inline">
                 @if (this.User.Identity.IsAuthenticated)
                 {
-                    <a class="btn btn-warning" asp-controller="Car" asp-action="Edit"
-                       asp-route-id="@Model.Id">Edit</a>
-                    <a class="ml-2 btn btn-danger" asp-controller="Car" asp-action="Delete"
-                       asp-route-id="@Model.Id">Delete</a>
-                    @if (!Model.IsRented)
+                    if (await carService.HasDealerWithIdAsync(Model.Id, User.Id()))
+                    {
+                        <a class="btn btn-warning" asp-controller="Car" asp-action="Edit"
+                           asp-route-id="@Model.Id">Edit</a>
+                        <a class="ml-2 btn btn-danger" asp-controller="Car" asp-action="Delete"
+                           asp-route-id="@Model.Id">Delete</a>
+                    }
+
+                    @if (!Model.IsRented && (await dealerService.ExistsByIdAsync(User.Id())) == false)
                     {
                         <form class="ml-2" asp-controller="Car"
                               asp-action="Rent" asp-route-id="@Model.Id" method="post">
                             <input class="btn btn-primary" type="submit" value="Rent" />
                         </form>
                     }
-                    else
+                    else if(await carService.IsRentedByUserWithIdAsync(Model.Id, User.Id()))
                     {
                         <form class="ml-2" asp-controller="Car" asp-action="Leave"
                               asp-route-id="@Model.Id" method="post">

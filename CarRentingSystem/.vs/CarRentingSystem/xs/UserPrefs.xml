@@ -1,30 +1,47 @@
 ﻿<Properties StartupConfiguration="{C3B3A491-73A5-448B-840E-7C0965DC1008}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.CarRentingSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CarRentingSystem/Views/Home/Error401.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CarRentingSystem/Controllers/CarController.cs">
     <Files>
-      <File FileName="CarRentingSystem.Core/Contracts/ICarService.cs" Line="49" Column="45" />
-      <File FileName="CarRentingSystem.Core/Services/CarService.cs" Line="235" Column="1" />
-      <File FileName="CarRentingSystem/Controllers/CarController.cs" Line="264" Column="1" />
-      <File FileName="CarRentingSystem.Core/Models/Car/CarDetailsViewModel.cs" Line="12" Column="31" />
-      <File FileName="CarRentingSystem.Infrastructure/Data/Common/IRepository.cs" Line="15" Column="56" />
-      <File FileName="CarRentingSystem.Infrastructure/Data/Common/Repository.cs" Line="51" Column="14" />
-      <File FileName="CarRentingSystem/Views/Car/Add.cshtml" Line="10" Column="1" />
-      <File FileName="CarRentingSystem/Views/Car/Edit.cshtml" Line="15" Column="2" />
-      <File FileName="CarRentingSystem/Views/Car/Delete.cshtml" Line="15" Column="12" />
-      <File FileName="CarRentingSystem.Core/Exceptions/UnauthorizedActionException.cs" Line="10" Column="6" />
-      <File FileName="CarRentingSystem/Program.cs" Line="30" Column="2" />
+      <File FileName="CarRentingSystem.Core/Contracts/ICarService.cs" />
+      <File FileName="CarRentingSystem.Core/Services/CarService.cs" Line="269" Column="42" />
+      <File FileName="CarRentingSystem/Controllers/CarController.cs" Line="68" Column="1" />
+      <File FileName="CarRentingSystem.Core/Models/Car/CarDetailsViewModel.cs" Line="10" Column="16" />
+      <File FileName="CarRentingSystem.Infrastructure/Data/Common/IRepository.cs" />
+      <File FileName="CarRentingSystem.Infrastructure/Data/Common/Repository.cs" />
+      <File FileName="CarRentingSystem/Program.cs" Line="49" Column="1" />
       <File FileName="CarRentingSystem/Controllers/HomeController.cs" Line="46" Column="34" />
-      <File FileName="CarRentingSystem/Views/Home/Error.cshtml" Line="9" Column="103" />
-      <File FileName="CarRentingSystem/Views/Home/Error400.cshtml" Line="11" Column="55" />
-      <File FileName="CarRentingSystem/Views/Home/Error401.cshtml" Line="14" Column="4" />
-      <File FileName="CarRentingSystem/Properties/launchSettings.json" Line="19" Column="7" />
-      <File FileName="CarRentingSystem/Views/Home/Error404.cshtml" Line="13" Column="45" />
+      <File FileName="CarRentingSystem.Core/Models/Statistics/StatisticsModel.cs" Line="8" Column="30" />
+      <File FileName="CarRentingSystem.Core/Contracts/IStatisticService.cs" Line="8" Column="38" />
+      <File FileName="CarRentingSystem.Core/Services/StatisticService.cs" Line="31" Column="15" />
+      <File FileName="CarRentingSystem/Extensions/ServiceCollectionExtension.cs" Line="16" Column="71" />
+      <File FileName="CarRentingSystem/Controllers/StatisticApi.cs" Line="24" Column="1" />
+      <File FileName="CarRentingSystem/Views/Home/Index.cshtml" Line="42" Column="19" />
+      <File FileName="CarRentingSystem.Core/Models/Car/CarServiceModel.cs" Line="9" Column="33" />
+      <File FileName="CarRentingSystem.Core/Models/Car/AllCarsQueryModel.cs" Line="1" Column="1" />
+      <File FileName="CarRentingSystem.Core/Models/Car/CarBrandServiceModel.cs" Line="13" Column="1" />
+      <File FileName="CarRentingSystem.Core/Models/Car/CarCategoryServiceModel.cs" Line="1" Column="1" />
+      <File FileName="CarRentingSystem.Core/Models/Car/CarDetailsServiceModel.cs" Line="6" Column="55" />
+      <File FileName="CarRentingSystem.Core/Models/Car/CarFormModel.cs" Line="57" Column="40" />
+      <File FileName="CarRentingSystem.Core/Models/Car/CarQueryServiceModel.cs" Line="1" Column="1" />
+      <File FileName="CarRentingSystem/Views/Shared/_CarPartial.cshtml" Line="16" Column="16" />
+      <File FileName="CarRentingSystem/Views/_ViewImports.cshtml" Line="6" Column="43" />
+      <File FileName="CarRentingSystem.Core/Models/Home/CarIndexServiceModel.cs" Line="13" Column="61" />
+      <File FileName="CarRentingSystem/Views/Dealer/Become.cshtml" Line="13" Column="11" />
+      <File FileName="CarRentingSystem.Core/Exceptions/UnauthorizedActionException.cs" Line="1" Column="1" />
+      <File FileName="CarRentingSystem/Views/Shared/_ValidationScriptsPartial.cshtml" Line="1" Column="1" />
+      <File FileName="CarRentingSystem/Views/Shared/Error.cshtml" Line="1" Column="1" />
+      <File FileName="CarRentingSystem/Views/Car/Details.cshtml" Line="37" Column="22" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CarRentingSystem" expanded="True">
+          <Node name="CarRentingSystem">
             <Node name="CarRentingSystem" expanded="True">
               <Node name="Components" expanded="True" />
               <Node name="Controllers" expanded="True" />
@@ -33,6 +50,7 @@
               <Node name="Properties" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Car" expanded="True" />
+                <Node name="Dealer" expanded="True" />
                 <Node name="Home" expanded="True" />
                 <Node name="Shared" expanded="True">
                   <Node name="Components" expanded="True">
@@ -51,26 +69,13 @@
                 <Node name="Car" expanded="True" />
                 <Node name="Dealer" expanded="True" />
                 <Node name="Home" expanded="True" />
+                <Node name="Statistics" expanded="True" />
               </Node>
               <Node name="Services" expanded="True" />
-            </Node>
-            <Node name="CarRentingSystem.Infrastructure" expanded="True">
-              <Node name="Constants" expanded="True" />
-              <Node name="Data" expanded="True">
-                <Node name="Common" expanded="True" />
-                <Node name="Models" expanded="True" />
-              </Node>
-              <Node name="Enums" expanded="True" />
-              <Node name="Migrations" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

@@ -2,6 +2,7 @@
 using CarRentingSystem.Core.Services;
 using CarRentingSystem.Infrastructure.Data;
 using CarRentingSystem.Infrastructure.Data.Common;
+using CarRentingSystem.Infrastructure.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -35,7 +36,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
         public static IServiceCollection AddAplicationIdentity(this IServiceCollection services, IConfiguration config)
         {
-            services.AddDefaultIdentity<IdentityUser>(options =>
+            services.AddDefaultIdentity<ApplicationUser>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = false;
                 options.Password.RequireNonAlphanumeric = true;
