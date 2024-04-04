@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9wIQBEvyHF1Y/j/E+7YNO3S5x5WOVpGGDFu6Rnz8zbk=",
+  "Hash": "yiY3+DoYdJ7rwQihYuVfVnCV92zvRpGEdDaPgB4JJ6M=",
   "Source": "CarRentingSystem",
   "BasePath": "_content/CarRentingSystem",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/wwwroot/js/jquery.override-validator.js",
+      "SourceId": "CarRentingSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/wwwroot/",
+      "BasePath": "_content/CarRentingSystem",
+      "RelativePath": "js/jquery.override-validator.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/jquery.override-validator.js"
     },
     {
       "Identity": "/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/wwwroot/js/site.js",
