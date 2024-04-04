@@ -132,7 +132,8 @@ namespace CarRentingSystem.Controllers
                 return BadRequest();
             }
 
-            if (await carService.HasDealerWithIdAsync(id, User.Id()) == false)
+            if (await carService.HasDealerWithIdAsync(id, User.Id()) == false
+                && User.IsAdmin() == false)
             {
                 return Unauthorized();
             }
@@ -212,7 +213,8 @@ namespace CarRentingSystem.Controllers
                 return BadRequest();
             }
 
-            if (await carService.HasDealerWithIdAsync(model.Id, User.Id()) == false)
+            if (await carService.HasDealerWithIdAsync(model.Id, User.Id()) == false
+                && User.IsAdmin() == false)
             {
                 return Unauthorized();
             }
@@ -231,7 +233,8 @@ namespace CarRentingSystem.Controllers
                 return BadRequest();
             }
 
-            if (await dealerService.ExistsByIdAsync(User.Id()))
+            if (await dealerService.ExistsByIdAsync(User.Id())
+                && User.IsAdmin() == false)
             {
                 return Unauthorized();
             }
