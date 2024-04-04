@@ -1,4 +1,5 @@
-﻿using CarRentingSystem.ModelBinders;
+﻿using CarRentingSystem.Extensions;
+using CarRentingSystem.ModelBinders;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -50,6 +51,8 @@ app.UseEndpoints(endpoints =>
     endpoints.MapDefaultControllerRoute();
     endpoints.MapRazorPages();
 });
+
+await app.CreateRoleAsync();
 
 await app.RunAsync();
 

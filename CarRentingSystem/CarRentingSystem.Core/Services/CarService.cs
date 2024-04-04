@@ -123,6 +123,7 @@ namespace CarRentingSystem.Core.Services
                     ImageUrl = c.ImageUrl,
                     Dealer = new Models.Dealer.DealerServiceModel()
                     {
+                        FullName = $"{c.Dealer.User.FirstName} {c.Dealer.User.LastName}",
                         Email = c.Dealer.User.Email,
                         PhoneNumber = c.Dealer.PhoneNumber
                     },

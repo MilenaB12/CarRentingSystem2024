@@ -44,7 +44,8 @@ namespace Microsoft.Extensions.DependencyInjection
                 options.Password.RequireDigit = true;
                 options.Password.RequireUppercase = true;
             })
-            .AddEntityFrameworkStores<CarRentingDbContext>();
+             .AddRoles<IdentityRole>()
+             .AddEntityFrameworkStores<CarRentingDbContext>();
 
             return services;
         }
