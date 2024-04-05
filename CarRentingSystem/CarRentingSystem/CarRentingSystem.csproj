@@ -16,6 +16,13 @@
     <None Remove="Views\Dealer\" />
     <None Remove="Attributes\" />
     <None Remove="ModelBinders\" />
+    <None Remove="Areas\Admin\Controllers\" />
+    <None Remove="Areas\Admin\Views\" />
+    <None Remove="Areas\Admin\Views\Shared\" />
+    <None Remove="Areas\Admin\Components\" />
+    <None Remove="Areas\Admin\Views\Shared\Components\" />
+    <None Remove="Areas\Admin\Views\Shared\Components\AdminMenuComponent\" />
+    <None Remove="Areas\Admin\Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -39,6 +46,13 @@
     <Folder Include="Views\Dealer\" />
     <Folder Include="Attributes\" />
     <Folder Include="ModelBinders\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Views\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Admin\Components\" />
+    <Folder Include="Areas\Admin\Views\Shared\Components\" />
+    <Folder Include="Areas\Admin\Views\Shared\Components\AdminMenuComponent\" />
+    <Folder Include="Areas\Admin\Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CarRentingSystem.Core\CarRentingSystem.Core.csproj">

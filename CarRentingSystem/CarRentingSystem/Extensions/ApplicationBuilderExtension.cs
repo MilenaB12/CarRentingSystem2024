@@ -27,10 +27,10 @@ namespace CarRentingSystem.Extensions
 			}
 			else if (userManager != null && roleManager != null && await roleManager.RoleExistsAsync(UserRole) == false)
 			{
-                var role = new IdentityRole(UserRole);
-                await roleManager.CreateAsync(role);
-            }
-        }
+				var role = new IdentityRole(UserRole);
+				await roleManager.CreateAsync(role);
+			}
+		}
 
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using static CarRentingSystem.Core.Constants.RoleConstants;
 
 namespace CarRentingSystem.Areas.Identity.Pages.Account
 {
@@ -116,10 +117,10 @@ namespace CarRentingSystem.Areas.Identity.Pages.Account
                     var user = await _userManager.FindByEmailAsync(Input.Email);
                     _logger.LogInformation("User logged in.");
 
-                    //if (await _userManager.IsInRoleAsync(user, AdminRole))
-                    //{
-                    //    return RedirectToAction("DashBoard", "Home", new { area = "Admin" });
-                    //}
+                    if (await _userManager.IsInRoleAsync(user, AdminRole))
+                    {
+                        return RedirectToAction("Board", "Home", new { area = "Admin" });
+                    }
 
                     return LocalRedirect(returnUrl);
                 }
