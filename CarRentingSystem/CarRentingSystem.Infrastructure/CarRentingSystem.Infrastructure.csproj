@@ -23,6 +23,7 @@
     <None Remove="Constants\" />
     <None Remove="Enums\" />
     <None Remove="Data\Common\" />
+    <None Remove="Data\SeedDb\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -30,5 +31,6 @@
     <Folder Include="Constants\" />
     <Folder Include="Enums\" />
     <Folder Include="Data\Common\" />
+    <Folder Include="Data\SeedDb\" />
   </ItemGroup>
 </Project>

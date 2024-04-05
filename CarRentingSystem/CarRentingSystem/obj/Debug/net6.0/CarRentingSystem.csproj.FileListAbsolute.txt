@@ -99,6 +99,7 @@
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/obj/Debug/net6.0/staticwebassets.pack.json
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/obj/Debug/net6.0/staticwebassets.build.json
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/obj/Debug/net6.0/staticwebassets.development.json
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/obj/Debug/net6.0/scopedcss/Areas/Admin/Views/Shared/_Layout.cshtml.rz.scp.css
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/obj/Debug/net6.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/obj/Debug/net6.0/scopedcss/bundle/CarRentingSystem.styles.css
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/obj/Debug/net6.0/scopedcss/projectbundle/CarRentingSystem.bundle.scp.css
@@ -108,4 +109,3 @@
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/obj/Debug/net6.0/CarRentingSystem.pdb
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/obj/Debug/net6.0/CarRentingSystem.genruntimeconfig.cache
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/obj/Debug/net6.0/ref/CarRentingSystem.dll
-/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/obj/Debug/net6.0/scopedcss/Areas/Admin/Views/Shared/_Layout.cshtml.rz.scp.css

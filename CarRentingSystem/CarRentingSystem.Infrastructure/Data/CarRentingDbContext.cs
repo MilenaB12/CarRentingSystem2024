@@ -1,4 +1,5 @@
 ﻿using CarRentingSystem.Infrastructure.Data.Models;
+using CarRentingSystem.Infrastructure.Data.SeedDb;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -36,6 +37,10 @@ public class CarRentingDbContext : IdentityDbContext<ApplicationUser>
     .WithMany(d => d.Reservations)
     .HasForeignKey(c => c.DealerId)
     .OnDelete(DeleteBehavior.Restrict);
+
+        builder.ApplyConfiguration(new CategoryConfiguration());
+        builder.ApplyConfiguration(new BrandConfiguration());
+        builder.ApplyConfiguration(new CarConfiguration());
 
         base.OnModelCreating(builder);
     }
