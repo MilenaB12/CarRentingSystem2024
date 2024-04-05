@@ -41,6 +41,7 @@ public class CarRentingDbContext : IdentityDbContext<ApplicationUser>
         builder.ApplyConfiguration(new CategoryConfiguration());
         builder.ApplyConfiguration(new BrandConfiguration());
         builder.ApplyConfiguration(new CarConfiguration());
+        builder.ApplyConfiguration(new UserClaimsConfiguration());
 
         base.OnModelCreating(builder);
     }

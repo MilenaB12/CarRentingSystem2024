@@ -9,9 +9,8 @@
 
     if (SignInManager.IsSignedIn(User))
     {
-        var user = await UserManager.FindByIdAsync(User.Id());
+        username = User.FindFirstValue(CarRentingSystem.Infrastructure.Constants.CustomClaims.UserFullNameClaim) ?? string.Empty;
 
-        username = $"{user.FirstName} {user.LastName}";
     }
 }
 <ul class="navbar-nav">
