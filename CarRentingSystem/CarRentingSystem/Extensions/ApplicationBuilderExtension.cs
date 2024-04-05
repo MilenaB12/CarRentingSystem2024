@@ -7,7 +7,7 @@ namespace CarRentingSystem.Extensions
 {
 	public static class ApplicationBuilderExtension
 	{
-		public static async Task CreateRoleAsync(this IApplicationBuilder app)
+		public static async Task CreateRolesAsync(this IApplicationBuilder app)
 		{
 			using var scope = app.ApplicationServices.CreateAsyncScope();
 			var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
@@ -25,7 +25,13 @@ namespace CarRentingSystem.Extensions
 					await userManager.AddToRoleAsync(admin, role.Name);
 				}
 			}
+			else if (userManager != null && roleManager != null && await roleManager.RoleExistsAsync(UserRole) == false)
+			{
+                var role = new IdentityRole(UserRole);
+                await roleManager.CreateAsync(role);
+            }
         }
+
     }
 }
 

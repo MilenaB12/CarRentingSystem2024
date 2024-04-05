@@ -52,7 +52,7 @@ app.UseEndpoints(endpoints =>
     endpoints.MapRazorPages();
 });
 
-await app.CreateRoleAsync();
+await app.CreateRolesAsync();
 
 await app.RunAsync();
 
