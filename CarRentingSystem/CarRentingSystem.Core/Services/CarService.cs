@@ -21,11 +21,12 @@ namespace CarRentingSystem.Core.Services
 
         public async Task<CarQueryServiceModel> AllAsync(string? category = null, string? searchTerm = null, CarSorting sorting = CarSorting.Newest, int currentPage = 1, int carsPerPage = 1)
         {
-            var carsToshow = repository.AllReadOnly<Car>();
+            var allCars = repository.AllReadOnly<Car>()
+                  .Where(c => c.IsApproved);
 
             if (category != null)
             {
-                carsToshow = carsToshow
+                allCars = allCars
                     .Where(c => c.Category.Name == category);
             }
 
@@ -33,28 +34,28 @@ namespace CarRentingSystem.Core.Services
             {
                 string normalizedSearchTerm = searchTerm.ToLower();
 
-                carsToshow = carsToshow
+                allCars = allCars
                     .Where(h => h.Color.ToLower().Contains(normalizedSearchTerm));
             }
 
-            carsToshow = sorting switch
+            allCars = sorting switch
             {
-                CarSorting.Price => carsToshow
+                CarSorting.Price => allCars
                 .OrderBy(c => c.Price),
-                CarSorting.NotRented => carsToshow
+                CarSorting.NotRented => allCars
                     .OrderBy(c => c.RenterId == null)
                     .ThenByDescending(c => c.Id),
-                _ => carsToshow
+                _ => allCars
                     .OrderByDescending(c => c.Id)
             };
 
-            var cars = await carsToshow
+            var cars = await allCars
                 .Skip((currentPage - 1) * carsPerPage)
                 .Take(carsPerPage)
                 .ProjectToCarServiceModel()
                 .ToListAsync();
 
-            int totalCars = await carsToshow.CountAsync();
+            int totalCars = await allCars.CountAsync();
 
             return new CarQueryServiceModel()
             {
@@ -116,6 +117,8 @@ namespace CarRentingSystem.Core.Services
         public async Task<CarDetailsServiceModel> CarDetailsByIdAsync(int id)
         {
             return await repository.AllReadOnly<Car>()
+                 .Where(c => c.IsApproved)
+                .Where(c => c.IsApproved)
                 .Where(c => c.Id == id)
                 .Select(c => new CarDetailsServiceModel()
                 {
@@ -261,6 +264,7 @@ namespace CarRentingSystem.Core.Services
         {
             return await repository
                 .AllReadOnly<Car>()
+                .Where(c => c.IsApproved)
                 .Take(3)
                 .OrderByDescending(c => c.Id)
                 .Select(c => new CarIndexServiceModel()

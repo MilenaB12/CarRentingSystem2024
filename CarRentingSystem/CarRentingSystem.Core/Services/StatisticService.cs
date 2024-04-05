@@ -18,9 +18,11 @@ namespace CarRentingSystem.Core.Services
         public async Task<StatisticsModel> TotalAsync()
         {
             int totalCars = await repository.AllReadOnly<Car>()
+                .Where(c => c.IsApproved)
                 .CountAsync();
 
             int totalRents = await repository.AllReadOnly<Car>()
+                .Where(c => c.IsApproved)
                 .Where(c => c.RenterId != null)
                 .CountAsync();
 

@@ -53,5 +53,8 @@ namespace CarRentingSystem.Infrastructure.Data.Models
         public Brand Brand { get; set; } = null!;
 
         public string? RenterId { get; set; }
+
+        public bool IsApproved { get; set; }
+
     }
 }
