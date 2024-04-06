@@ -95,6 +95,44 @@ namespace CarRentingSystem.Infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "a56ec564-782b-6351-da53-81a4b53acaf2",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "f954559c-b165-483d-966b-ac03966c95a7",
+                            Email = "dealer@abv",
+                            EmailConfirmed = false,
+                            FirstName = "Mitko",
+                            LastName = "Dimitrov",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "dealer@abv",
+                            NormalizedUserName = "dealer@abv",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDV/W+i6GDr9ToePyLLBktejpACt1YPrHYCC3HIrTG/VSsRwCuI2CKvJMW6hProGrw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "53eb4192-18e5-4d4e-be7e-a7cd3fd6c404",
+                            TwoFactorEnabled = false,
+                            UserName = "dealer@abv"
+                        },
+                        new
+                        {
+                            Id = "24a2453b-bfea-3abe-4b2a-beabf3525a21",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "8502d69a-e1e9-4898-aabe-0aae786bee3e",
+                            Email = "Simona@abv",
+                            EmailConfirmed = false,
+                            FirstName = "Simona",
+                            LastName = "Hristova",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "Simona@abv",
+                            NormalizedUserName = "Simona@abv",
+                            PasswordHash = "AQAAAAIAAYagAAAAED927eL5c/CJwByyx7BQ9gYAAzv6sXcDfpGP9iewpZtvUVZpo5c6mhbPrk/7zsr+LA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "68fb8095-5488-4f9c-9715-b42b994e116f",
+                            TwoFactorEnabled = false,
+                            UserName = "Simona@abv"
+                        });
                 });
 
             modelBuilder.Entity("CarRentingSystem.Infrastructure.Data.Models.Brand", b =>
@@ -201,6 +239,20 @@ namespace CarRentingSystem.Infrastructure.Migrations
                             ImageUrl = "https://i.ytimg.com/vi/gxaUwYHMqpE/maxresdefault.jpg",
                             IsApproved = false,
                             Price = 4500m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BrandId = 4,
+                            CategoryId = 5,
+                            Color = "grey",
+                            DealerId = 2,
+                            Description = "Whether you're headed out of town for a vacation, need a vehicle for business in a new city, have your current car in the shop, or are looking to experience an extended test drive before purchase, you can rely on a Toyota car rental.",
+                            FuelType = 3,
+                            GearType = 2,
+                            ImageUrl = "https://mobistatic4.focus.bg/mobile/photosorg/821/1/big//11690282183094821_4k.jpg",
+                            IsApproved = false,
+                            Price = 4200m
                         });
                 });
 
@@ -259,6 +311,14 @@ namespace CarRentingSystem.Infrastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Dealers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 2,
+                            PhoneNumber = "+359676767676",
+                            UserId = "a56ec564-782b-6351-da53-81a4b53acaf2"
+                        });
                 });
 
             modelBuilder.Entity("CarRentingSystem.Infrastructure.Data.Models.Reservation", b =>
@@ -364,24 +424,17 @@ namespace CarRentingSystem.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = 4,
                             ClaimType = "user:fullname",
-                            ClaimValue = "Ivana Simeonova",
-                            UserId = "70d8118c-fbff-4bca-9e8d-addca4d36e62"
+                            ClaimValue = "Mitko Dimitrov",
+                            UserId = "a56ec564-782b-6351-da53-81a4b53acaf2"
                         },
                         new
                         {
-                            Id = 2,
+                            Id = 5,
                             ClaimType = "user:fullname",
-                            ClaimValue = "Ivana Simeonova",
-                            UserId = "6da2c0d2-b759-429b-86a1-8d566966fe01"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ClaimType = "user:fullname",
-                            ClaimValue = "Ivan Ivanov",
-                            UserId = "6da2c0d2-b759-429b-86a1-8d566966fe01"
+                            ClaimValue = "Simona Hristova",
+                            UserId = "24a2453b-bfea-3abe-4b2a-beabf3525a21"
                         });
                 });
 

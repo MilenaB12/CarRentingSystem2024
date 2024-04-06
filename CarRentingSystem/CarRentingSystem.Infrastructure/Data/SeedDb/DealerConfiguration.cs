@@ -5,13 +5,14 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CarRentingSystem.Infrastructure.Data.SeedDb
 {
-    internal class CarConfiguration : IEntityTypeConfiguration<Car>
+    internal class DealerConfiguration : IEntityTypeConfiguration<Dealer>
     {
-        public void Configure(EntityTypeBuilder<Car> builder)
+        public void Configure(EntityTypeBuilder<Dealer> builder)
         {
             var data = new SeedData();
 
-            builder.HasData(new Car[] { data.FirstCar, data.SecondCar});
+            builder.HasData(new Dealer[] { data.Dealer});
         }
     }
 }
+

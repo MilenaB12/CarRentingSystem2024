@@ -7,11 +7,15 @@ namespace CarRentingSystem.Infrastructure.Data.SeedDb
 {
 	public class SeedData
 	{
+        public ApplicationUser DealerUser { get; set; }
+
+        public ApplicationUser GuestUser { get; set; }
+
         public IdentityUserClaim<string> DealerUserClaim { get; set; }
 
         public IdentityUserClaim<string> GuestUserClaim { get; set; }
 
-        public IdentityUserClaim<string> AdminUserClaim { get; set; }
+        public Dealer Dealer { get; set; }
 
         public Category SedanCategory { get; set; }
 
@@ -23,38 +27,79 @@ namespace CarRentingSystem.Infrastructure.Data.SeedDb
 
         public Car FirstCar { get; set; }
 
+        public Car SecondCar { get; set; }
+
+
         public SeedData()
         {
+            SeedUsers();
             SeedUsersClaims();
+            SeedDealer();
             SeedCategories();
             SeedBrand();
             SeedCar();
+        }
+
+        private void SeedUsers()
+        {
+            var hasher = new PasswordHasher<IdentityUser>();
+
+            DealerUser = new ApplicationUser()
+            {
+                Id = "a56ec564-782b-6351-da53-81a4b53acaf2",
+                UserName = "dealer@abv",
+                NormalizedUserName = "dealer@abv",
+                Email = "dealer@abv",
+                NormalizedEmail = "dealer@abv",
+                FirstName = "Mitko",
+                LastName = "Dimitrov"
+            };
+
+            DealerUser.PasswordHash =
+                 hasher.HashPassword(DealerUser, "Mitko.1");
+
+            GuestUser = new ApplicationUser()
+            {
+                Id = "24a2453b-bfea-3abe-4b2a-beabf3525a21",
+                UserName = "Simona@abv",
+                NormalizedUserName = "Simona@abv",
+                Email = "Simona@abv",
+                NormalizedEmail = "Simona@abv",
+                FirstName = "Simona",
+                LastName = "Hristova"
+            };
+
+            GuestUser.PasswordHash =
+            hasher.HashPassword(DealerUser, "Simona.1");
         }
 
         private void SeedUsersClaims()
         {
             DealerUserClaim = new IdentityUserClaim<string>()
             {
-                Id = 1,
+                Id = 4,
                 ClaimType = UserFullNameClaim,
-                ClaimValue = "Ivana Simeonova",
-                UserId = "70d8118c-fbff-4bca-9e8d-addca4d36e62"
+                ClaimValue = "Mitko Dimitrov",
+                UserId = "a56ec564-782b-6351-da53-81a4b53acaf2"
             };
 
             GuestUserClaim = new IdentityUserClaim<string>()
             {
-                Id = 2,
+                Id = 5,
                 ClaimType = UserFullNameClaim,
-                ClaimValue = "Ivana Simeonova",
-                UserId = "6da2c0d2-b759-429b-86a1-8d566966fe01"
+                ClaimValue = "Simona Hristova",
+                UserId = "24a2453b-bfea-3abe-4b2a-beabf3525a21"
             };
+        }
 
-            AdminUserClaim = new IdentityUserClaim<string>()
+
+        private void SeedDealer()
+        {
+            Dealer = new Dealer()
             {
-                Id = 3,
-                ClaimType = UserFullNameClaim,
-                ClaimValue = "Ivan Ivanov",
-                UserId = "6da2c0d2-b759-429b-86a1-8d566966fe01"
+                Id = 2,
+                PhoneNumber = "+359676767676",
+                UserId = DealerUser.Id
             };
         }
 
@@ -104,6 +149,20 @@ namespace CarRentingSystem.Infrastructure.Data.SeedDb
                 CategoryId = 6,
                 DealerId = 1,
                 BrandId = 3
+            };
+
+            SecondCar = new Car()
+            {
+                Id = 4,
+                Color = "grey",
+                Description = "Whether you're headed out of town for a vacation, need a vehicle for business in a new city, have your current car in the shop, or are looking to experience an extended test drive before purchase, you can rely on a Toyota car rental.",
+                FuelType = Enums.FuelType.Electric,
+                GearType = Enums.GearType.Automatic,
+                Price = 4200,
+                ImageUrl = "https://mobistatic4.focus.bg/mobile/photosorg/821/1/big//11690282183094821_4k.jpg",
+                CategoryId = SedanCategory.Id,
+                DealerId = Dealer.Id,
+                BrandId = ToyotaBrand.Id
             };
         }
     }  
