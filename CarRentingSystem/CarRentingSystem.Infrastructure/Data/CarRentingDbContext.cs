@@ -38,6 +38,8 @@ public class CarRentingDbContext : IdentityDbContext<ApplicationUser>
     .HasForeignKey(c => c.DealerId)
     .OnDelete(DeleteBehavior.Restrict);
 
+        builder.ApplyConfiguration(new UserConfiguration());
+        builder.ApplyConfiguration(new DealerConfiguration());
         builder.ApplyConfiguration(new CategoryConfiguration());
         builder.ApplyConfiguration(new BrandConfiguration());
         builder.ApplyConfiguration(new CarConfiguration());

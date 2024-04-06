@@ -1,0 +1,20 @@
+﻿@model IEnumerable<CarServiceModel>
+
+@{
+    ViewBag.Title = "Approve";
+}
+<h2 class="text-center">@ViewBag.Title</h2>
+
+<hr />
+<h4>Cars to approve</h4>
+@if (!Model.Any())
+{
+    <h2 class="text-center">There are no cars to approve!</h2>
+}
+<div class="row">
+    @foreach (var car in Model)
+    {
+        @await Html.PartialAsync("~/Areas/Admin/Views/Shared/_ApproveCarPartial.cshtml", car)
+    }
+</div>
+

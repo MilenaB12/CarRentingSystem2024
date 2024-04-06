@@ -23,6 +23,9 @@
     <None Remove="Areas\Admin\Views\Shared\Components\" />
     <None Remove="Areas\Admin\Views\Shared\Components\AdminMenuComponent\" />
     <None Remove="Areas\Admin\Views\Home\" />
+    <None Remove="Areas\Admin\Views\User\" />
+    <None Remove="Areas\Admin\Views\Car\" />
+    <None Remove="Areas\Admin\Views\Rent\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
@@ -53,6 +56,9 @@
     <Folder Include="Areas\Admin\Views\Shared\Components\" />
     <Folder Include="Areas\Admin\Views\Shared\Components\AdminMenuComponent\" />
     <Folder Include="Areas\Admin\Views\Home\" />
+    <Folder Include="Areas\Admin\Views\User\" />
+    <Folder Include="Areas\Admin\Views\Car\" />
+    <Folder Include="Areas\Admin\Views\Rent\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CarRentingSystem.Core\CarRentingSystem.Core.csproj">

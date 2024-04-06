@@ -54,7 +54,10 @@ namespace CarRentingSystem.Infrastructure.Data.Models
 
         public string? RenterId { get; set; }
 
-        public bool IsApproved { get; set; }
+        [ForeignKey(nameof(RenterId))]
+        public ApplicationUser? Renter { get; set; }
+
+        public bool IsApproved { get; set; } = false;
 
     }
 }

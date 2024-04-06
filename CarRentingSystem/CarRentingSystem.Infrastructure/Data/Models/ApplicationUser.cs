@@ -18,6 +18,7 @@ namespace CarRentingSystem.Infrastructure.Data.Models
         [PersonalData]
         public string LastName { get; set; } = string.Empty;
 
-    }
+		public Dealer? Dealer { get; set; }
+	}
 }
 

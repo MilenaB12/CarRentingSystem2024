@@ -108,6 +108,18 @@ namespace CarRentingSystem.Core.Services
                 .ToListAsync();
         }
 
+        public async Task ApproveCarAsync(int carId)
+        {
+            var car = await repository.GetByIdAsync<Car>(carId);
+
+            if (car != null)
+            {
+                car.IsApproved = true;
+
+                await repository.SaveChangesAsync();
+            }
+        }
+
         public async Task<bool> BrandExistsAsync(int brandId)
         {
             return await repository.AllReadOnly<Brand>()
@@ -199,6 +211,21 @@ namespace CarRentingSystem.Core.Services
         {
             return await repository.AllReadOnly<Car>()
                 .AnyAsync(c => c.Id == id);
+        }
+
+        public async Task<IEnumerable<CarServiceModel>> GetApprovedAsync()
+        {
+            return await repository.AllReadOnly<Car>()
+                .Where(c => c.IsApproved == false)
+                .Select(c => new CarServiceModel()
+                {
+                    Brand  = c.Brand.Name,
+                    Id = c.Id,
+                    Color = c.Color,
+                    ImageUrl = c.ImageUrl,
+                    Price = c.Price,
+                })
+                .ToListAsync();
         }
 
         public async Task<CarFormModel?> GetCarFormModelByIdAsync(int id)

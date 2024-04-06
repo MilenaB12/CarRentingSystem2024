@@ -1,0 +1,23 @@
+﻿@model CarServiceModel
+@inject IDealerService dealerService
+@inject ICarService carService
+
+<div class="col-md-4">
+    <div class="card mb-3">
+        <img class="card-img-top" src="@Model.ImageUrl" alt="Car Image">
+        <div class="card-body text-center">
+            <h4>@Model.Brand</h4>
+            <h6>Color: <b>@Model.Color</b></h6>
+            <h6>
+                Price Per Month:
+                <b>@String.Format("{0:f2}", Model.Price) BGN</b>
+            </h6>
+            <br />
+            <form class="input-group-sm" asp-controller="Car"
+                  asp-area="Admin" asp-action="Approve" asp-route-carId="@Model.Id" method="post">
+                <input class="btn btn-success" type="submit" value="Approve" />
+            </form>
+        </div>
+    </div>
+</div>
+

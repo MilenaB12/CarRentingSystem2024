@@ -25,6 +25,7 @@
     <None Remove="Extensions\" />
     <None Remove="Exceptions\" />
     <None Remove="Models\Statistics\" />
+    <None Remove="Models\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -38,5 +39,6 @@
     <Folder Include="Extensions\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Models\Statistics\" />
+    <Folder Include="Models\Admin\" />
   </ItemGroup>
 </Project>
