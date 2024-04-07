@@ -109,3 +109,4 @@
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/obj/Debug/net6.0/CarRentingSystem.pdb
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/obj/Debug/net6.0/CarRentingSystem.genruntimeconfig.cache
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/obj/Debug/net6.0/ref/CarRentingSystem.dll
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem/bin/Debug/net6.0/libman.json

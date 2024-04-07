@@ -11,6 +11,11 @@ namespace CarRentingSystem.Core.Constants
 
         public const string HasRents = "You should have no rents to become an agent";
 
+        public const string UserSuccessMessage = "UserSuccessMessage";
+
+        public const string UserErrorMessage = "UserErrorMessage";
+
+
     }
 }
 

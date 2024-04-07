@@ -9,7 +9,7 @@ using CarRentingSystem.Core.Exceptions;
 using CarRentingSystem.Core.Models.Car;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using static CarRentingSystem.Core.Constants.MessageConstants;
 
 namespace CarRentingSystem.Controllers
 {
@@ -245,6 +245,8 @@ namespace CarRentingSystem.Controllers
             }
 
             await carService.RentAsync(id, User.Id());
+
+            TempData[UserSuccessMessage] = "You have rented the car successfully!";
 
             return RedirectToAction(nameof(All));
         }
