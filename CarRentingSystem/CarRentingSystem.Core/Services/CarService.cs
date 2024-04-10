@@ -108,6 +108,16 @@ namespace CarRentingSystem.Core.Services
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<CarLocationServiceModel>> AllLocationsAsync()
+        {
+            return await repository.AllReadOnly<Location>()
+                .Select(c => new CarLocationServiceModel()
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                }).ToListAsync();
+        }
+
         public async Task ApproveCarAsync(int carId)
         {
             var car = await repository.GetByIdAsync<Car>(carId);
@@ -150,7 +160,8 @@ namespace CarRentingSystem.Core.Services
                     GearType = c.GearType.ToString(),
                     Price = c.Price,
                     Year = c.Year,
-                    IsRented = c.RenterId != null!
+                    IsRented = c.RenterId != null!,
+                    Location = c.Location.Name
                 }).FirstAsync();
         }
 
@@ -173,7 +184,8 @@ namespace CarRentingSystem.Core.Services
                 Year = model.Year,
                 FuelType = model.FuelType,
                 GearType = model.GearType,
-                BrandId = model.BrandId
+                BrandId = model.BrandId,
+                LocationId = model.LocationId
             };
 
             await repository.AddAsync(car);
@@ -202,6 +214,7 @@ namespace CarRentingSystem.Core.Services
                 car.FuelType = model.FuelType;
                 car.GearType = model.GearType;
                 car.BrandId = model.BrandId;
+                car.LocationId = model.LocationId;
 
                 await repository.SaveChangesAsync();
             }
@@ -224,6 +237,7 @@ namespace CarRentingSystem.Core.Services
                     Color = c.Color,
                     ImageUrl = c.ImageUrl,
                     Price = c.Price,
+                    Location = c.Location.Name
                 })
                 .ToListAsync();
         }
@@ -242,13 +256,15 @@ namespace CarRentingSystem.Core.Services
                     GearType = c.GearType,
                     ImageUrl = c.ImageUrl,
                     Price = c.Price,
-                    Year = c.Year
+                    Year = c.Year,
+                    LocationId = c.LocationId
                 }).FirstOrDefaultAsync();
 
             if (car != null)
             {
                 car.Categories = await AllCategoriesAsync();
                 car.Brands = await AllBrandsAsync();
+                car.Locations = await AllLocationsAsync();
             }
 
             return car;     
@@ -316,6 +332,12 @@ namespace CarRentingSystem.Core.Services
                 car.RenterId = null;
                 await repository.SaveChangesAsync();
             }
+        }
+
+        public async Task<bool> LocationExistsAsync(int locationId)
+        {
+            return await repository.AllReadOnly<Location>()
+                .AnyAsync(l => l.Id == locationId);
         }
 
         public async Task RentAsync(int id, string userId)

@@ -17,6 +17,7 @@
         <div class="card col-8 border-0">
             <p style="font-size:25px;"><u>@Model.Brand</u></p>
             <p>Color: <b>@Model.Color</b></p>
+            <p>Location: <b>@Model.Location</b></p>
             <p>
                 Price Per Month:
                 <b>@String.Format("{0:f2}", Model.Price) BGN</b>
@@ -52,7 +53,7 @@
                             <input class="btn btn-primary" type="submit" value="Rent" />
                         </form>
                     }
-                    else if(await carService.IsRentedByUserWithIdAsync(Model.Id, User.Id()))
+                    else if (await carService.IsRentedByUserWithIdAsync(Model.Id, User.Id()))
                     {
                         <form class="ml-2" asp-controller="Car" asp-action="Leave"
                               asp-route-id="@Model.Id" method="post">

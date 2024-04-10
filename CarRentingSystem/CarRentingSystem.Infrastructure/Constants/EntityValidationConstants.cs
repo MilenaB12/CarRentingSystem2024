@@ -66,6 +66,14 @@ namespace CarRentingSystem.Infrastructure.Constants
 
             public const int LastNameMaxLength = 25;
         }
+
+
+        public static class Location
+        {
+            public const int NameMinLength = 2;
+
+            public const int NameMaxLength = 25;
+        }
     }
 }
 

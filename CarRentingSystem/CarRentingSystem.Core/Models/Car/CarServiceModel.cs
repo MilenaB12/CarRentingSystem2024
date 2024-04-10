@@ -27,5 +27,7 @@ namespace CarRentingSystem.Core.Models.Car
 
         [Display(Name = "Is Rented")]
         public bool IsRented { get; set; }
+
+        public string Location { get; set; } = null!;
     }
 }

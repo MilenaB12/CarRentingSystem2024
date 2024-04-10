@@ -59,5 +59,11 @@ namespace CarRentingSystem.Infrastructure.Data.Models
 
         public bool IsApproved { get; set; } = false;
 
+        [Required]
+        public int LocationId { get; set; }
+
+        [ForeignKey(nameof(LocationId))]
+        public Location Location { get; set; } = null!;
+
     }
 }

@@ -11,7 +11,7 @@ namespace CarRentingSystem.Infrastructure.Data.SeedDb
         {
             var data = new SeedData();
 
-            builder.HasData(new ApplicationUser[] { data.DealerUser, data.GuestUser});
+            builder.HasData(new ApplicationUser[] { data.DealerUser, data.GuestUser, data.AdminUser});
         }
     }
 }

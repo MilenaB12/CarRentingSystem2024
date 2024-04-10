@@ -7,6 +7,7 @@
         <div class="card-body text-center">
             <h4>@Model.Brand</h4>
             <h6>Color: <b>@Model.Color</b></h6>
+            <h6>Location: <b>@Model.Location</b></h6>
             <h6>
                 Price Per Month:
                 <b>@String.Format("{0:f2}", Model.Price) BGN</b>
@@ -28,7 +29,7 @@
 
                 <p></p>
                 @if (!Model.IsRented && ((await dealerService.ExistsByIdAsync(User.Id())) == false
-                        || User.IsAdmin()))
+                     || User.IsAdmin()))
                 {
                     <form class="input-group-sm" asp-controller="Car"
                           asp-action="Rent" asp-route-id="@Model.Id" method="post">

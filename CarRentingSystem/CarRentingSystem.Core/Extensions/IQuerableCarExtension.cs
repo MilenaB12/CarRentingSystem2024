@@ -16,7 +16,8 @@ namespace System.Linq
 					Brand = c.Brand.Name,
 					ImageUrl = c.ImageUrl,
 					IsRented = c.RenterId != null,
-					Price = c.Price
+					Price = c.Price,
+					Location = c.Location.Name
 			    });
 		}
 	}

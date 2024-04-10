@@ -50,11 +50,18 @@ namespace CarRentingSystem.Core.Models.Car
         [Display(Name = "Brand")]
         public int BrandId { get; set; }
 
+        [Display(Name = "Location")]
+        public int LocationId { get; set; }
+
+
         public IEnumerable<CarCategoryServiceModel> Categories { get; set; }
             = new List<CarCategoryServiceModel>();
 
         public IEnumerable<CarBrandServiceModel> Brands { get; set; }
     = new List<CarBrandServiceModel>();
+
+        public IEnumerable<CarLocationServiceModel> Locations { get; set; }
+= new List<CarLocationServiceModel>();
     }
 }
 

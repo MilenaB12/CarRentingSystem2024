@@ -89,7 +89,9 @@ namespace CarRentingSystem.Controllers
             var model = new CarFormModel()
             {
                 Categories = await carService.AllCategoriesAsync(),
-                Brands = await carService.AllBrandsAsync()
+                Brands = await carService.AllBrandsAsync(),
+                Locations = await carService.AllLocationsAsync()
+
             };
 
             return View(model);
@@ -109,10 +111,16 @@ namespace CarRentingSystem.Controllers
                 ModelState.TryAddModelError(nameof(model.BrandId), "Brand does not exist");
             }
 
+            if (await carService.LocationExistsAsync(model.LocationId) == false)
+            {
+                ModelState.TryAddModelError(nameof(model.LocationId), "Location does not exist");
+            }
+
             if (ModelState.IsValid == false)
             {
                 model.Categories = await carService.AllCategoriesAsync();
                 model.Brands = await carService.AllBrandsAsync();
+                model.Locations = await carService.AllLocationsAsync();
 
                 return View(model);
             }
@@ -166,10 +174,16 @@ namespace CarRentingSystem.Controllers
                 ModelState.TryAddModelError(nameof(model.BrandId), "Brand does not exist");
             }
 
+            if (await carService.LocationExistsAsync(model.LocationId) == false)
+            {
+                ModelState.TryAddModelError(nameof(model.LocationId), "Location does not exist");
+            }
+
             if (ModelState.IsValid == false)
             {
                 model.Categories = await carService.AllCategoriesAsync();
                 model.Brands = await carService.AllBrandsAsync();
+                model.Locations = await carService.AllLocationsAsync();
 
                 return View(model);
             }
@@ -199,7 +213,8 @@ namespace CarRentingSystem.Controllers
                 Id = id,
                 Color = car.Color,
                 ImageUrl = car.ImageUrl,
-                Brand = car.Brand
+                Brand = car.Brand,
+                Location = car.Location
             };
 
             return View(model);

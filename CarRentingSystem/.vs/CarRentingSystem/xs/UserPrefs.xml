@@ -1,91 +1,59 @@
 ﻿<Properties StartupConfiguration="{C3B3A491-73A5-448B-840E-7C0965DC1008}|Default">
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.CarRentingSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CarRentingSystem.Core/Services/CarService.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="CarRentingSystem.Infrastructure/Migrations/20240410093513_InitialMigration.cs">
     <Files>
-      <File FileName="CarRentingSystem.Core/Contracts/IUserService.cs" Line="8" Column="5" />
-      <File FileName="CarRentingSystem.Core/Models/Admin/UserServiceModel.cs" Line="4" Column="11" />
-      <File FileName="CarRentingSystem.Core/Services/UserService.cs" Line="45" Column="12" />
-      <File FileName="CarRentingSystem/Areas/Admin/Controllers/UserController.cs" Line="12" Column="4" />
-      <File FileName="CarRentingSystem/Areas/Admin/Views/User/All.cshtml" Line="27" Column="13" />
-      <File FileName="CarRentingSystem.Core/Contracts/IRentService.cs" Line="8" Column="46" />
-      <File FileName="CarRentingSystem.Core/Services/RentService.cs" Line="22" Column="47" />
-      <File FileName="CarRentingSystem.Infrastructure/Data/Models/Car.cs" Line="60" Column="54" />
-      <File FileName="CarRentingSystem/Areas/Admin/Controllers/RentController.cs" Line="20" Column="23" />
-      <File FileName="CarRentingSystem/Areas/Admin/Views/AllRent/AllRent.cshtml" Line="14" Column="4" />
-      <File FileName="CarRentingSystem.Core/Services/CarService.cs" Line="222" Column="42" />
-      <File FileName="CarRentingSystem.Core/Contracts/ICarService.cs" Line="55" Column="60" />
-      <File FileName="CarRentingSystem/Areas/Admin/Controllers/CarController.cs" Line="18" Column="1" />
-      <File FileName="CarRentingSystem/Areas/Admin/Views/Car/Approve.cshtml" Line="12" Column="3" />
+      <File FileName="CarRentingSystem/Areas/Admin/Views/Car/Approve.cshtml" Line="1" Column="1" />
+      <File FileName="CarRentingSystem/Areas/Admin/Views/Shared/_ApproveCarPartial.cshtml" Line="10" Column="48" />
+      <File FileName="CarRentingSystem/Areas/Admin/Views/Shared/_AdminPartial.cshtml" Line="1" Column="1" />
+      <File FileName="CarRentingSystem/Areas/Admin/Controllers/CarController.cs" Line="1" Column="1" />
       <File FileName="CarRentingSystem/Areas/Admin/Controllers/HomeController.cs" Line="1" Column="1" />
-      <File FileName="CarRentingSystem/Areas/Admin/Views/Home/Board.cshtml" Line="36" Column="54" />
+      <File FileName="CarRentingSystem/Areas/Admin/Controllers/RentController.cs" Line="1" Column="1" />
+      <File FileName="CarRentingSystem/Areas/Admin/Controllers/UserController.cs" Line="1" Column="1" />
+      <File FileName="CarRentingSystem/Areas/Admin/Controllers/AdminController.cs" Line="1" Column="1" />
+      <File FileName="CarRentingSystem/Areas/Admin/Components/AdminMenuComponent.cs" Line="1" Column="1" />
+      <File FileName="CarRentingSystem/Areas/Admin/Views/Home/Board.cshtml" Line="1" Column="1" />
+      <File FileName="CarRentingSystem.Infrastructure/Data/Common/Repository.cs" Line="39" Column="53" />
+      <File FileName="CarRentingSystem.Infrastructure/Data/Common/IRepository.cs" Line="13" Column="34" />
+      <File FileName="CarRentingSystem.Core/Contracts/ICarService.cs" Line="56" Column="1" />
+      <File FileName="CarRentingSystem.Core/Services/CarService.cs" Line="123" Column="63" />
+      <File FileName="CarRentingSystem.Core/Models/Car/CarServiceModel.cs" Line="31" Column="1" />
+      <File FileName="CarRentingSystem/Views/Car/Details.cshtml" Line="20" Column="1" />
+      <File FileName="CarRentingSystem/Controllers/CarController.cs" Line="217" Column="1" />
+      <File FileName="CarRentingSystem/Views/Shared/_CarPartial.cshtml" Line="10" Column="1" />
+      <File FileName="CarRentingSystem.Infrastructure/Data/CarRentingDbContext.cs" Line="20" Column="1" />
+      <File FileName="../../../.microsoft/usersecrets/aspnet-CarRentingSystem-c0640683-c0c6-46a9-823d-12a18695b3a4/secrets.json" Line="3" Column="97" />
+      <File FileName="CarRentingSystem.Infrastructure/Migrations/20240410093513_InitialMigration.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CarRentingSystem" expanded="True">
-            <Node name="CarRentingSystem">
+            <Node name="CarRentingSystem" selected="True">
               <Node name="Areas">
                 <Node name="Admin">
                   <Node name="Components" expanded="True" />
                   <Node name="Controllers" expanded="True" />
-                  <Node name="Views" expanded="True">
-                    <Node name="AllRents" selected="True" />
+                  <Node name="Views">
                     <Node name="Car" expanded="True" />
                     <Node name="Home" expanded="True" />
                     <Node name="Rent" expanded="True" />
-                    <Node name="Shared" expanded="True">
-                      <Node name="Components" expanded="True">
-                        <Node name="AdminMenuComponent" expanded="True" />
-                      </Node>
-                    </Node>
-                    <Node name="User" expanded="True" />
                   </Node>
                 </Node>
-                <Node name="Identity" expanded="True">
-                  <Node name="Pages" expanded="True">
-                    <Node name="Account" expanded="True">
-                      <Node name="Login.cshtml" expanded="True" />
-                      <Node name="Register.cshtml" expanded="True" />
-                    </Node>
-                  </Node>
-                </Node>
-              </Node>
-              <Node name="Components" expanded="True" />
-              <Node name="Controllers" expanded="True" />
-              <Node name="Extensions" expanded="True" />
-              <Node name="Views" expanded="True">
-                <Node name="Car" expanded="True" />
-                <Node name="Dealer" expanded="True" />
-                <Node name="Home" expanded="True" />
-                <Node name="Shared" expanded="True">
-                  <Node name="Components" expanded="True">
-                    <Node name="MainMenuComponent" expanded="True" />
-                  </Node>
-                </Node>
-              </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="js" expanded="True" />
               </Node>
             </Node>
             <Node name="CarRentingSystem.Core">
               <Node name="Constants" expanded="True" />
-              <Node name="Enumerations" expanded="True" />
-              <Node name="Exceptions" expanded="True" />
-              <Node name="Extensions" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="Admin" expanded="True" />
-                <Node name="Car" expanded="True" />
+              <Node name="Models">
                 <Node name="Dealer" expanded="True" />
-                <Node name="Home" expanded="True" />
-                <Node name="Statistics" expanded="True" />
               </Node>
             </Node>
             <Node name="CarRentingSystem.Infrastructure">
-              <Node name="Constants" expanded="True" />
               <Node name="Data" expanded="True">
-                <Node name="SeedDb" expanded="True" />
+                <Node name="Common" expanded="True" />
+                <Node name="Models" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -93,8 +61,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.CarRentingSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

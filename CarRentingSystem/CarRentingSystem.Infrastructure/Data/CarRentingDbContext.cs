@@ -14,11 +14,9 @@ public class CarRentingDbContext : IdentityDbContext<ApplicationUser>
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        builder.Entity<Reservation>()
-.HasKey(x => new { x.CarId, x.DealerId });
-        builder.Entity<Car>()
-            .Property(c => c.Price)
-            .HasPrecision(18, 2);
+
+        //builder.Entity<Car>()
+        //    .HasKey(x => new { x.BrandId, x.CategoryId, x.DealerId, x.LocationId});
 
         builder.Entity<Car>()
 .HasOne(c => c.Category)
@@ -32,16 +30,24 @@ public class CarRentingDbContext : IdentityDbContext<ApplicationUser>
             .HasForeignKey(c => c.DealerId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        builder.Entity<Reservation>()
-    .HasOne(c => c.Dealer)
-    .WithMany(d => d.Reservations)
-    .HasForeignKey(c => c.DealerId)
+        builder.Entity<Car>()
+.HasOne(c => c.Brand)
+.WithMany(ct => ct.Cars)
+.HasForeignKey(c => c.BrandId)
+.OnDelete(DeleteBehavior.Restrict);
+
+        builder.Entity<Car>()
+    .HasOne(c => c.Location)
+    .WithMany(d => d.Cars)
+    .HasForeignKey(c => c.LocationId)
     .OnDelete(DeleteBehavior.Restrict);
+
 
         builder.ApplyConfiguration(new UserConfiguration());
         builder.ApplyConfiguration(new DealerConfiguration());
         builder.ApplyConfiguration(new CategoryConfiguration());
         builder.ApplyConfiguration(new BrandConfiguration());
+        builder.ApplyConfiguration(new LocationConfiguration());
         builder.ApplyConfiguration(new CarConfiguration());
         builder.ApplyConfiguration(new UserClaimsConfiguration());
 
@@ -56,6 +62,7 @@ public class CarRentingDbContext : IdentityDbContext<ApplicationUser>
 
     public DbSet<Dealer> Dealers { get; set; } = null!;
 
-    public DbSet<Reservation> Reservations { get; set; } = null!;
+    public DbSet<Location> Locations { get; set; } = null!;
+
 }
 

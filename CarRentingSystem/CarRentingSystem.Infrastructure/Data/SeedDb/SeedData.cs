@@ -11,11 +11,17 @@ namespace CarRentingSystem.Infrastructure.Data.SeedDb
 
         public ApplicationUser GuestUser { get; set; }
 
+        public ApplicationUser AdminUser { get; set; }
+
         public IdentityUserClaim<string> DealerUserClaim { get; set; }
 
         public IdentityUserClaim<string> GuestUserClaim { get; set; }
 
+        public IdentityUserClaim<string> AdminUserClaim { get; set; }
+
         public Dealer Dealer { get; set; }
+
+        public Dealer AdminDealer { get; set; }
 
         public Category SedanCategory { get; set; }
 
@@ -24,6 +30,10 @@ namespace CarRentingSystem.Infrastructure.Data.SeedDb
         public Brand AudiBrand { get; set; }
 
         public Brand ToyotaBrand { get; set; }
+
+        public Location SofiyaLocation { get; set; }
+
+        public Location PlovdivLocation { get; set; }
 
         public Car FirstCar { get; set; }
 
@@ -37,6 +47,7 @@ namespace CarRentingSystem.Infrastructure.Data.SeedDb
             SeedDealer();
             SeedCategories();
             SeedBrand();
+            SeedLocation();
             SeedCar();
         }
 
@@ -71,6 +82,20 @@ namespace CarRentingSystem.Infrastructure.Data.SeedDb
 
             GuestUser.PasswordHash =
             hasher.HashPassword(DealerUser, "Simona.1");
+
+            AdminUser = new ApplicationUser()
+            {
+                Id = "b25ab374-825b-5628-cd43-85a3e51acdb4",
+                UserName = "admin@abv",
+                NormalizedUserName = "admin@abv",
+                Email = "admin@abv",
+                NormalizedEmail = "admin@abv",
+                FirstName = "Todor",
+                LastName = "Todorov"
+            };
+
+            AdminUser.PasswordHash =
+                hasher.HashPassword(AdminUser, "admin.1");
         }
 
         private void SeedUsersClaims()
@@ -90,6 +115,14 @@ namespace CarRentingSystem.Infrastructure.Data.SeedDb
                 ClaimValue = "Simona Hristova",
                 UserId = "24a2453b-bfea-3abe-4b2a-beabf3525a21"
             };
+
+            AdminUserClaim = new IdentityUserClaim<string>()
+            {
+                Id = 3,
+                ClaimType = UserFullNameClaim,
+                UserId = "b25ab374-825b-5628-cd43-85a3e51acdb4",
+                ClaimValue = "Todor Todorov"
+            };
         }
 
 
@@ -97,9 +130,16 @@ namespace CarRentingSystem.Infrastructure.Data.SeedDb
         {
             Dealer = new Dealer()
             {
-                Id = 2,
+                Id = 1,
                 PhoneNumber = "+359676767676",
                 UserId = DealerUser.Id
+            };
+
+            AdminDealer = new Dealer()
+            {
+                Id = 2,
+                PhoneNumber = "+359898989898",
+                UserId = AdminUser.Id
             };
         }
 
@@ -108,13 +148,13 @@ namespace CarRentingSystem.Infrastructure.Data.SeedDb
 
             SedanCategory = new Category()
             {
-                Id = 5,
+                Id = 1,
                 Name = "Sedan"
             };
 
             LuxuryCategory = new Category()
             {
-                Id = 6,
+                Id = 2,
                 Name = "Luxury"
             };
         }
@@ -124,14 +164,30 @@ namespace CarRentingSystem.Infrastructure.Data.SeedDb
 
             AudiBrand = new Brand()
             {
-                Id = 3,
+                Id = 1,
                 Name = "Audi",
             };
 
             ToyotaBrand = new Brand()
             {
-                Id = 4,
+                Id = 2,
                 Name = "Toyota",
+            };
+        }
+
+        private void SeedLocation()
+        {
+
+            SofiyaLocation = new Location()
+            {
+                Id = 1,
+                Name = "Sofiya",
+            };
+
+            PlovdivLocation = new Location()
+            {
+                Id = 2,
+                Name = "Plovdiv",
             };
         }
 
@@ -139,16 +195,17 @@ namespace CarRentingSystem.Infrastructure.Data.SeedDb
         {
             FirstCar = new Car()
             {
-                Id = 3,
+                Id = 1,
                 Color = "black",
                 Description = "The car has no complaints",
                 FuelType = Enums.FuelType.Diesel,
                 GearType = Enums.GearType.Automatic,
                 Price = 4500,
                 ImageUrl = "https://i.ytimg.com/vi/gxaUwYHMqpE/maxresdefault.jpg",
-                CategoryId = 6,
-                DealerId = 1,
-                BrandId = 3
+                CategoryId = LuxuryCategory.Id,
+                DealerId = AdminDealer.Id,
+                BrandId = AudiBrand.Id,
+                LocationId = SofiyaLocation.Id
             };
 
             SecondCar = new Car()
@@ -162,7 +219,8 @@ namespace CarRentingSystem.Infrastructure.Data.SeedDb
                 ImageUrl = "https://mobistatic4.focus.bg/mobile/photosorg/821/1/big//11690282183094821_4k.jpg",
                 CategoryId = SedanCategory.Id,
                 DealerId = Dealer.Id,
-                BrandId = ToyotaBrand.Id
+                BrandId = ToyotaBrand.Id,
+                LocationId = PlovdivLocation.Id
             };
         }
     }  

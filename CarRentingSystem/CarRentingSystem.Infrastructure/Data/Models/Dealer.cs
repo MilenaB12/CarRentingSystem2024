@@ -24,8 +24,5 @@ namespace CarRentingSystem.Infrastructure.Data.Models
         public ApplicationUser User { get; set; } = null!;
 
         public IList<Car> Cars { get; set; } = new List<Car>();
-
-        public IList<Reservation> Reservations { get; set; } = new List<Reservation>();
-
     }
 }

@@ -101,7 +101,7 @@ namespace CarRentingSystem.Infrastructure.Migrations
                         {
                             Id = "a56ec564-782b-6351-da53-81a4b53acaf2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e1eda1b5-66bb-4995-892e-f15c3c94089e",
+                            ConcurrencyStamp = "5f9ce8c6-a8d5-4cff-a67a-5b1e17486894",
                             Email = "dealer@abv",
                             EmailConfirmed = false,
                             FirstName = "Mitko",
@@ -109,9 +109,9 @@ namespace CarRentingSystem.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "dealer@abv",
                             NormalizedUserName = "dealer@abv",
-                            PasswordHash = "AQAAAAIAAYagAAAAECieUa19wf10GfehJSvHmvqj+ms/CSVrHhJLSCk1yK3pA6sPw3XSzPZNLJeiLPqVUQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHyAtuYKPM8T8kJNK63tFi+6kQ4W+0yku9T0uQqcqbo2Amc/cuazT409Bn3ZEn6Nxw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f5fd8f81-24b2-4007-9268-fe60876c1188",
+                            SecurityStamp = "166d4fc0-aee0-4d21-aa70-d5bf72444ff1",
                             TwoFactorEnabled = false,
                             UserName = "dealer@abv"
                         },
@@ -119,7 +119,7 @@ namespace CarRentingSystem.Infrastructure.Migrations
                         {
                             Id = "24a2453b-bfea-3abe-4b2a-beabf3525a21",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8a999d5f-35a9-4ef3-87e8-75160aa4d81e",
+                            ConcurrencyStamp = "a6297548-3a5a-4cd8-aaf6-8f4a25e6d6ac",
                             Email = "Simona@abv",
                             EmailConfirmed = false,
                             FirstName = "Simona",
@@ -127,11 +127,29 @@ namespace CarRentingSystem.Infrastructure.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "Simona@abv",
                             NormalizedUserName = "Simona@abv",
-                            PasswordHash = "AQAAAAIAAYagAAAAEC7vw2fLnhjpSPA5x2VhnFRz1MMdSV3yahZ9ctLeJq4i73M76MaJYQ6OlELyAmJ1Pw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDHYlA1Kon+1K5p+3snsvoFpv6+hEl2yl145lIKKHiNAStW/gImx6rTi7L8mqKXzGQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8e107279-cba1-4504-a4be-6246705c8cbd",
+                            SecurityStamp = "8b0b1dba-5eaa-483b-88a8-da924d873733",
                             TwoFactorEnabled = false,
                             UserName = "Simona@abv"
+                        },
+                        new
+                        {
+                            Id = "b25ab374-825b-5628-cd43-85a3e51acdb4",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "03dad1c2-476c-4b56-ac90-60927341a324",
+                            Email = "admin@abv",
+                            EmailConfirmed = false,
+                            FirstName = "Todor",
+                            LastName = "Todorov",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "admin@abv",
+                            NormalizedUserName = "admin@abv",
+                            PasswordHash = "AQAAAAIAAYagAAAAEH1EAt3NbraQKDBgqhMD243/dyET+WZwH1lKUZl1KDsgilZhDlzyfHfeTiJMMwaPBQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "9f31bcd1-1597-44ac-949c-b2762608d6a5",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@abv"
                         });
                 });
 
@@ -155,12 +173,12 @@ namespace CarRentingSystem.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 3,
+                            Id = 1,
                             Name = "Audi"
                         },
                         new
                         {
-                            Id = 4,
+                            Id = 2,
                             Name = "Toyota"
                         });
                 });
@@ -205,8 +223,10 @@ namespace CarRentingSystem.Infrastructure.Migrations
                     b.Property<bool>("IsApproved")
                         .HasColumnType("bit");
 
+                    b.Property<int>("LocationId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Price")
-                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("RenterId")
@@ -223,6 +243,8 @@ namespace CarRentingSystem.Infrastructure.Migrations
 
                     b.HasIndex("DealerId");
 
+                    b.HasIndex("LocationId");
+
                     b.HasIndex("RenterId");
 
                     b.ToTable("Cars");
@@ -230,30 +252,32 @@ namespace CarRentingSystem.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 3,
-                            BrandId = 3,
-                            CategoryId = 6,
+                            Id = 1,
+                            BrandId = 1,
+                            CategoryId = 2,
                             Color = "black",
-                            DealerId = 1,
+                            DealerId = 2,
                             Description = "The car has no complaints",
                             FuelType = 1,
                             GearType = 2,
                             ImageUrl = "https://i.ytimg.com/vi/gxaUwYHMqpE/maxresdefault.jpg",
                             IsApproved = false,
+                            LocationId = 1,
                             Price = 4500m
                         },
                         new
                         {
                             Id = 4,
-                            BrandId = 4,
-                            CategoryId = 5,
+                            BrandId = 2,
+                            CategoryId = 1,
                             Color = "grey",
-                            DealerId = 2,
+                            DealerId = 1,
                             Description = "Whether you're headed out of town for a vacation, need a vehicle for business in a new city, have your current car in the shop, or are looking to experience an extended test drive before purchase, you can rely on a Toyota car rental.",
                             FuelType = 3,
                             GearType = 2,
                             ImageUrl = "https://mobistatic4.focus.bg/mobile/photosorg/821/1/big//11690282183094821_4k.jpg",
                             IsApproved = false,
+                            LocationId = 2,
                             Price = 4200m
                         });
                 });
@@ -278,12 +302,12 @@ namespace CarRentingSystem.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 6,
+                            Id = 2,
                             Name = "Luxury"
                         },
                         new
                         {
-                            Id = 5,
+                            Id = 1,
                             Name = "Sedan"
                         });
                 });
@@ -318,34 +342,46 @@ namespace CarRentingSystem.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 2,
+                            Id = 1,
                             PhoneNumber = "+359676767676",
                             UserId = "a56ec564-782b-6351-da53-81a4b53acaf2"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            PhoneNumber = "+359898989898",
+                            UserId = "b25ab374-825b-5628-cd43-85a3e51acdb4"
                         });
                 });
 
-            modelBuilder.Entity("CarRentingSystem.Infrastructure.Data.Models.Reservation", b =>
+            modelBuilder.Entity("CarRentingSystem.Infrastructure.Data.Models.Location", b =>
                 {
-                    b.Property<int>("CarId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("DealerId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.HasKey("CarId", "DealerId");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
-                    b.HasIndex("DealerId");
+                    b.HasKey("Id");
 
-                    b.ToTable("Reservations");
+                    b.ToTable("Locations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Sofiya"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Plovdiv"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -438,6 +474,13 @@ namespace CarRentingSystem.Infrastructure.Migrations
                             ClaimType = "user:fullname",
                             ClaimValue = "Simona Hristova",
                             UserId = "24a2453b-bfea-3abe-4b2a-beabf3525a21"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ClaimType = "user:fullname",
+                            ClaimValue = "Todor Todorov",
+                            UserId = "b25ab374-825b-5628-cd43-85a3e51acdb4"
                         });
                 });
 
@@ -506,7 +549,7 @@ namespace CarRentingSystem.Infrastructure.Migrations
                     b.HasOne("CarRentingSystem.Infrastructure.Data.Models.Brand", "Brand")
                         .WithMany("Cars")
                         .HasForeignKey("BrandId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("CarRentingSystem.Infrastructure.Data.Models.Category", "Category")
@@ -521,6 +564,12 @@ namespace CarRentingSystem.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("CarRentingSystem.Infrastructure.Data.Models.Location", "Location")
+                        .WithMany("Cars")
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("CarRentingSystem.Infrastructure.Data.Models.ApplicationUser", "Renter")
                         .WithMany()
                         .HasForeignKey("RenterId");
@@ -530,6 +579,8 @@ namespace CarRentingSystem.Infrastructure.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Dealer");
+
+                    b.Navigation("Location");
 
                     b.Navigation("Renter");
                 });
@@ -543,25 +594,6 @@ namespace CarRentingSystem.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("CarRentingSystem.Infrastructure.Data.Models.Reservation", b =>
-                {
-                    b.HasOne("CarRentingSystem.Infrastructure.Data.Models.Car", "Car")
-                        .WithMany()
-                        .HasForeignKey("CarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CarRentingSystem.Infrastructure.Data.Models.Dealer", "Dealer")
-                        .WithMany("Reservations")
-                        .HasForeignKey("DealerId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Car");
-
-                    b.Navigation("Dealer");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -633,8 +665,11 @@ namespace CarRentingSystem.Infrastructure.Migrations
             modelBuilder.Entity("CarRentingSystem.Infrastructure.Data.Models.Dealer", b =>
                 {
                     b.Navigation("Cars");
+                });
 
-                    b.Navigation("Reservations");
+            modelBuilder.Entity("CarRentingSystem.Infrastructure.Data.Models.Location", b =>
+                {
+                    b.Navigation("Cars");
                 });
 #pragma warning restore 612, 618
         }

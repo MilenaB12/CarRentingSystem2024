@@ -18,7 +18,7 @@ namespace CarRentingSystem.Extensions
 				var role = new IdentityRole(AdminRole);
 				await roleManager.CreateAsync(role);
 
-				var admin = await userManager.FindByEmailAsync("Ivan@abv");
+				var admin = await userManager.FindByEmailAsync("admin@abv");
 
 				if (admin != null)
 				{

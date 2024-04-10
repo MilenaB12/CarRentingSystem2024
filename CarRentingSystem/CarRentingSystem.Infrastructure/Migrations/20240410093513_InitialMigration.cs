@@ -28,6 +28,8 @@ namespace CarRentingSystem.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -54,8 +56,7 @@ namespace CarRentingSystem.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Model = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -76,17 +77,16 @@ namespace CarRentingSystem.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Dealers",
+                name: "Locations",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Dealers", x => x.Id);
+                    table.PrimaryKey("PK_Locations", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -196,32 +196,59 @@ namespace CarRentingSystem.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Dealers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Dealers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Dealers_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Cars",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Color = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Year = table.Column<int>(type: "int", nullable: false),
+                    Year = table.Column<int>(type: "int", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     FuelType = table.Column<int>(type: "int", nullable: false),
                     GearType = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     DealerId = table.Column<int>(type: "int", nullable: false),
                     BrandId = table.Column<int>(type: "int", nullable: false),
-                    RenterId = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    RenterId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    IsApproved = table.Column<bool>(type: "bit", nullable: false),
+                    LocationId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Cars", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Cars_Brands_CategoryId",
-                        column: x => x.CategoryId,
+                        name: "FK_Cars_AspNetUsers_RenterId",
+                        column: x => x.RenterId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Cars_Brands_BrandId",
+                        column: x => x.BrandId,
                         principalTable: "Brands",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Cars_Categories_CategoryId",
                         column: x => x.CategoryId,
@@ -234,34 +261,79 @@ namespace CarRentingSystem.Infrastructure.Migrations
                         principalTable: "Dealers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Reservations",
-                columns: table => new
-                {
-                    CarId = table.Column<int>(type: "int", nullable: false),
-                    DealerId = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
-                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Reservations", x => new { x.CarId, x.DealerId });
                     table.ForeignKey(
-                        name: "FK_Reservations_Cars_CarId",
-                        column: x => x.CarId,
-                        principalTable: "Cars",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Reservations_Dealers_DealerId",
-                        column: x => x.DealerId,
-                        principalTable: "Dealers",
+                        name: "FK_Cars_Locations_LocationId",
+                        column: x => x.LocationId,
+                        principalTable: "Locations",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { "24a2453b-bfea-3abe-4b2a-beabf3525a21", 0, "a6297548-3a5a-4cd8-aaf6-8f4a25e6d6ac", "Simona@abv", false, "Simona", "Hristova", false, null, "Simona@abv", "Simona@abv", "AQAAAAIAAYagAAAAEDHYlA1Kon+1K5p+3snsvoFpv6+hEl2yl145lIKKHiNAStW/gImx6rTi7L8mqKXzGQ==", null, false, "8b0b1dba-5eaa-483b-88a8-da924d873733", false, "Simona@abv" },
+                    { "a56ec564-782b-6351-da53-81a4b53acaf2", 0, "5f9ce8c6-a8d5-4cff-a67a-5b1e17486894", "dealer@abv", false, "Mitko", "Dimitrov", false, null, "dealer@abv", "dealer@abv", "AQAAAAIAAYagAAAAEHyAtuYKPM8T8kJNK63tFi+6kQ4W+0yku9T0uQqcqbo2Amc/cuazT409Bn3ZEn6Nxw==", null, false, "166d4fc0-aee0-4d21-aa70-d5bf72444ff1", false, "dealer@abv" },
+                    { "b25ab374-825b-5628-cd43-85a3e51acdb4", 0, "03dad1c2-476c-4b56-ac90-60927341a324", "admin@abv", false, "Todor", "Todorov", false, null, "admin@abv", "admin@abv", "AQAAAAIAAYagAAAAEH1EAt3NbraQKDBgqhMD243/dyET+WZwH1lKUZl1KDsgilZhDlzyfHfeTiJMMwaPBQ==", null, false, "9f31bcd1-1597-44ac-949c-b2762608d6a5", false, "admin@abv" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Brands",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Audi" },
+                    { 2, "Toyota" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Sedan" },
+                    { 2, "Luxury" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Locations",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Sofiya" },
+                    { 2, "Plovdiv" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserClaims",
+                columns: new[] { "Id", "ClaimType", "ClaimValue", "UserId" },
+                values: new object[,]
+                {
+                    { 3, "user:fullname", "Todor Todorov", "b25ab374-825b-5628-cd43-85a3e51acdb4" },
+                    { 4, "user:fullname", "Mitko Dimitrov", "a56ec564-782b-6351-da53-81a4b53acaf2" },
+                    { 5, "user:fullname", "Simona Hristova", "24a2453b-bfea-3abe-4b2a-beabf3525a21" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Dealers",
+                columns: new[] { "Id", "PhoneNumber", "UserId" },
+                values: new object[,]
+                {
+                    { 1, "+359676767676", "a56ec564-782b-6351-da53-81a4b53acaf2" },
+                    { 2, "+359898989898", "b25ab374-825b-5628-cd43-85a3e51acdb4" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Cars",
+                columns: new[] { "Id", "BrandId", "CategoryId", "Color", "DealerId", "Description", "FuelType", "GearType", "ImageUrl", "IsApproved", "LocationId", "Price", "RenterId", "Year" },
+                values: new object[] { 1, 1, 2, "black", 2, "The car has no complaints", 1, 2, "https://i.ytimg.com/vi/gxaUwYHMqpE/maxresdefault.jpg", false, 1, 4500m, null, null });
+
+            migrationBuilder.InsertData(
+                table: "Cars",
+                columns: new[] { "Id", "BrandId", "CategoryId", "Color", "DealerId", "Description", "FuelType", "GearType", "ImageUrl", "IsApproved", "LocationId", "Price", "RenterId", "Year" },
+                values: new object[] { 4, 2, 1, "grey", 1, "Whether you're headed out of town for a vacation, need a vehicle for business in a new city, have your current car in the shop, or are looking to experience an extended test drive before purchase, you can rely on a Toyota car rental.", 3, 2, "https://mobistatic4.focus.bg/mobile/photosorg/821/1/big//11690282183094821_4k.jpg", false, 2, 4200m, null, null });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -303,6 +375,11 @@ namespace CarRentingSystem.Infrastructure.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Cars_BrandId",
+                table: "Cars",
+                column: "BrandId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Cars_CategoryId",
                 table: "Cars",
                 column: "CategoryId");
@@ -313,15 +390,26 @@ namespace CarRentingSystem.Infrastructure.Migrations
                 column: "DealerId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Cars_LocationId",
+                table: "Cars",
+                column: "LocationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Cars_RenterId",
+                table: "Cars",
+                column: "RenterId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Dealers_PhoneNumber",
                 table: "Dealers",
                 column: "PhoneNumber",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reservations_DealerId",
-                table: "Reservations",
-                column: "DealerId");
+                name: "IX_Dealers_UserId",
+                table: "Dealers",
+                column: "UserId",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -342,16 +430,10 @@ namespace CarRentingSystem.Infrastructure.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Reservations");
+                name: "Cars");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "Cars");
 
             migrationBuilder.DropTable(
                 name: "Brands");
@@ -361,6 +443,12 @@ namespace CarRentingSystem.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Dealers");
+
+            migrationBuilder.DropTable(
+                name: "Locations");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
         }
     }
 }

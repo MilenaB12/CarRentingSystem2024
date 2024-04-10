@@ -24,6 +24,7 @@
     <None Remove="Enums\" />
     <None Remove="Data\Common\" />
     <None Remove="Data\SeedDb\" />
+    <None Remove="Migrations\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -32,5 +33,6 @@
     <Folder Include="Enums\" />
     <Folder Include="Data\Common\" />
     <Folder Include="Data\SeedDb\" />
+    <Folder Include="Migrations\" />
   </ItemGroup>
 </Project>
