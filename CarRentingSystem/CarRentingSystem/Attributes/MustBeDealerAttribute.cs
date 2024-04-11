@@ -4,7 +4,6 @@ using CarRentingSystem.Controllers;
 using CarRentingSystem.Core.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-
 namespace CarRentingSystem.Attributes
 {
     public class MustBeDealerAttribute: ActionFilterAttribute

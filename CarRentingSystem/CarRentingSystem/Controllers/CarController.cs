@@ -74,7 +74,9 @@ namespace CarRentingSystem.Controllers
         {
             if (await carService.ExistsAsync(id) == false)
             {
-                return BadRequest();
+                TempData[UserErrorMessage] = "This car does not exist!";
+
+                return RedirectToAction("All", "Car");
             }
 
             var model = await carService.CarDetailsByIdAsync(id);
@@ -95,6 +97,8 @@ namespace CarRentingSystem.Controllers
             };
 
             return View(model);
+
+
         }
 
         [HttpPost]
@@ -137,7 +141,9 @@ namespace CarRentingSystem.Controllers
         {
             if (await carService.ExistsAsync(id) == false)
             {
-                return BadRequest();
+                TempData[UserErrorMessage] = "This car does not exist!";
+
+                return RedirectToAction("All", "Car");
             }
 
             if (await carService.HasDealerWithIdAsync(id, User.Id()) == false

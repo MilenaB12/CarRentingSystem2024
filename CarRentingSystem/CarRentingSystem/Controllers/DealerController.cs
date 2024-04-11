@@ -36,7 +36,9 @@ namespace CarRentingSystem.Controllers
 
             if(await dealerService.UserHasRentsAsync(User.Id()))
             {
-                ModelState.AddModelError("Error", HasRents);
+                this.TempData[UserErrorMessage] = "You must not have any active rents in order to become a dealer!";
+
+                return RedirectToAction(nameof(CarController.Mine), "Car");
             }
 
             if(ModelState.IsValid == false)
@@ -44,7 +46,17 @@ namespace CarRentingSystem.Controllers
                 return View(model);
             }
 
-            await dealerService.CreateAsync(User.Id(), model.PhoneNumber);
+            try
+            {
+                await dealerService.CreateAsync(User.Id(), model.PhoneNumber);
+            }
+            catch (Exception)
+            {
+                this.TempData[UserErrorMessage] = "Unexpected error! Please try again later";
+
+                return RedirectToAction("Index", "Home");
+            }
+
 
             return RedirectToAction(nameof(CarController.All), "Car");
         }
