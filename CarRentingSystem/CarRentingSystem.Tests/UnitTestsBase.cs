@@ -13,7 +13,7 @@ namespace CarRentingSystem.Tests
 	{
 		protected CarRentingDbContext data;
 
-		protected IMapper mapper;
+		//protected IMapper mapper;
 
 		[OneTimeSetUp]
 		public void SetUpBase()

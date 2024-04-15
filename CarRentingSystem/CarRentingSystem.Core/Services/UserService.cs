@@ -36,19 +36,19 @@ namespace CarRentingSystem.Core.Services
                 .AnyAsync(c => c.RenterId == userId);
         }
 
-        //public async Task<string> UserFullName(string userId)
-        //{
-        //    string result = string.Empty;
+        public async Task<string> UserFullName(string userId)
+        {
+            string result = string.Empty;
 
-        //    var user = await repository.GetByIdAsync<ApplicationUser>(userId);
+            var user = await repository.GetByIdAsync<ApplicationUser>(userId);
 
-        //    if (user != null)
-        //    {
-        //        result = $"{user.FirstName} {user.LastName}";
-        //    }
+            if (user != null)
+            {
+                result = $"{user.FirstName} {user.LastName}";
+            }
 
-        //    return result;
-        //}
+            return result;
+        }
     }
 }
 
