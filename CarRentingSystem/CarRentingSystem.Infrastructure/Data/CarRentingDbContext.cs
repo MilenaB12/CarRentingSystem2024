@@ -7,16 +7,25 @@ namespace CarRentingSystem.Infrastructure.Data;
 
 public class CarRentingDbContext : IdentityDbContext<ApplicationUser>
 {
-    public CarRentingDbContext(DbContextOptions<CarRentingDbContext> options)
+    private bool seedData;
+
+    public CarRentingDbContext(DbContextOptions<CarRentingDbContext> options, bool seed = true)
         : base(options)
     {
+        if (Database.IsRelational())
+        {
+            Database.Migrate();
+        }
+        else
+        {
+            Database.EnsureCreated();
+        }
+
+        seedData = seed;
     }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-
-        //builder.Entity<Car>()
-        //    .HasKey(x => new { x.BrandId, x.CategoryId, x.DealerId, x.LocationId});
 
         builder.Entity<Car>()
 .HasOne(c => c.Category)
@@ -42,14 +51,17 @@ public class CarRentingDbContext : IdentityDbContext<ApplicationUser>
     .HasForeignKey(c => c.LocationId)
     .OnDelete(DeleteBehavior.Restrict);
 
+        if (seedData)
+        {
+            builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new DealerConfiguration());
+            builder.ApplyConfiguration(new CategoryConfiguration());
+            builder.ApplyConfiguration(new BrandConfiguration());
+            builder.ApplyConfiguration(new LocationConfiguration());
+            builder.ApplyConfiguration(new CarConfiguration());
+            builder.ApplyConfiguration(new UserClaimsConfiguration());
+        }
 
-        builder.ApplyConfiguration(new UserConfiguration());
-        builder.ApplyConfiguration(new DealerConfiguration());
-        builder.ApplyConfiguration(new CategoryConfiguration());
-        builder.ApplyConfiguration(new BrandConfiguration());
-        builder.ApplyConfiguration(new LocationConfiguration());
-        builder.ApplyConfiguration(new CarConfiguration());
-        builder.ApplyConfiguration(new UserClaimsConfiguration());
 
         base.OnModelCreating(builder);
     }

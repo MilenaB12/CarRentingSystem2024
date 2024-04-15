@@ -9,6 +9,7 @@ namespace CarRentingSystem.Core.Contracts
 
         Task<IEnumerable<UserServiceModel>> AllAsync();
 
+        Task<bool> UserHasRentsAsync(string userId);
     }
 }
 

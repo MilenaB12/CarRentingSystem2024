@@ -30,6 +30,12 @@ namespace CarRentingSystem.Core.Services
 
         }
 
+        public async Task<bool> UserHasRentsAsync(string userId)
+        {
+            return await repository.AllReadOnly<Car>()
+                .AnyAsync(c => c.RenterId == userId);
+        }
+
         //public async Task<string> UserFullName(string userId)
         //{
         //    string result = string.Empty;

@@ -11,6 +11,9 @@ namespace CarRentingSystem.Controllers
     {
         private readonly IDealerService dealerService;
 
+        private readonly IUserService userService;
+
+
         public DealerController(IDealerService _dealerService)
         {
             dealerService = _dealerService;
@@ -34,7 +37,7 @@ namespace CarRentingSystem.Controllers
                 ModelState.AddModelError(nameof(model.PhoneNumber), PhoneExists);
             }
 
-            if(await dealerService.UserHasRentsAsync(User.Id()))
+            if(await userService.UserHasRentsAsync(User.Id()))
             {
                 this.TempData[UserErrorMessage] = "You must not have any active rents in order to become a dealer!";
 

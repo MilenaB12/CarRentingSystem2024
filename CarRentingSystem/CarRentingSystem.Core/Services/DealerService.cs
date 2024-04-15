@@ -38,11 +38,6 @@ namespace CarRentingSystem.Core.Services
                 .FirstOrDefaultAsync(d => d.UserId == userId))?.Id;
         }
 
-        public async Task<bool> UserHasRentsAsync(string userId)
-        {
-            return await repository.AllReadOnly<Car>()
-                .AnyAsync(c => c.RenterId == userId);
-        }
 
         public async Task<bool> UserWithPhoneNumberExistsAsync(string phoneNumber)
         {
