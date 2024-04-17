@@ -82,7 +82,7 @@ namespace CarRentingSystem.Core.Services
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<CarServiceModel>> AllCarsByUserId(string userId)
+        public async Task<IEnumerable<CarServiceModel>> AllCarsByUserIdAsync(string userId)
         {
             return await repository.AllReadOnly<Car>()
                 .Where(c => c.RenterId == userId)
@@ -229,7 +229,7 @@ namespace CarRentingSystem.Core.Services
         public async Task<IEnumerable<CarServiceModel>> GetApprovedAsync()
         {
             return await repository.AllReadOnly<Car>()
-                .Where(c => c.IsApproved == false)
+                .Where(c => c.IsApproved == true)
                 .Select(c => new CarServiceModel()
                 {
                     Brand  = c.Brand.Name,

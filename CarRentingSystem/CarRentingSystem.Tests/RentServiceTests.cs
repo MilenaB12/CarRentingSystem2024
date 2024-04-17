@@ -5,6 +5,7 @@ using CarRentingSystem.Infrastructure.Data.Common;
 
 namespace CarRentingSystem.Tests
 {
+    [TestFixture]
 	public class RentServiceTests : UnitTestsBase
 	{
 		private IRentService rentService;

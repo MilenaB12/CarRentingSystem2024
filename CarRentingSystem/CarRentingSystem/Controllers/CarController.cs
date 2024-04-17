@@ -63,7 +63,7 @@ namespace CarRentingSystem.Controllers
             }
             else
             {
-                model = await carService.AllCarsByUserId(userId);
+                model = await carService.AllCarsByUserIdAsync(userId);
             }
 
             return View(model);

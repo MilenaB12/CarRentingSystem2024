@@ -34,7 +34,7 @@ namespace CarRentingSystem.Core.Contracts
 
         Task<IEnumerable<CarServiceModel>> AllCarsByDealerIdAsync(int dealerId);
 
-        Task<IEnumerable<CarServiceModel>> AllCarsByUserId(string userId);
+        Task<IEnumerable<CarServiceModel>> AllCarsByUserIdAsync(string userId);
 
         Task<bool> ExistsAsync(int id);
 

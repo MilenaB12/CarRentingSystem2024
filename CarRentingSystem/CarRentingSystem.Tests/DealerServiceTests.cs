@@ -16,9 +16,9 @@ namespace CarRentingSystem.Tests
 		{
             var repo = new Repository(data);
         dealerService = new DealerService(repo);
-    }
+        }
 
-    [Test]
+        [Test]
 		public async Task GetDealerIdAsyncShouldReturnCorrectUserId()
 		{
 			var result = await dealerService.GetDealerIdAsync(Dealer.UserId);

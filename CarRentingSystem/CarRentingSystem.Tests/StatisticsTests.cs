@@ -5,7 +5,8 @@ using CarRentingSystem.Infrastructure.Data.Common;
 
 namespace CarRentingSystem.Tests
 {
-	public class StatisticsTests : UnitTestsBase
+    [TestFixture]
+    public class StatisticsTests : UnitTestsBase
 	{
 		private IStatisticService statisticService;
 
