@@ -37,13 +37,6 @@ namespace CarRentingSystem.Controllers
                 ModelState.AddModelError(nameof(model.PhoneNumber), PhoneExists);
             }
 
-            if(await userService.UserHasRentsAsync(User.Id()))
-            {
-                this.TempData[UserErrorMessage] = "You must not have any active rents in order to become a dealer!";
-
-                return RedirectToAction(nameof(CarController.Mine), "Car");
-            }
-
             if(ModelState.IsValid == false)
             {
                 return View(model);

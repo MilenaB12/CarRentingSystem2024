@@ -97,8 +97,6 @@ namespace CarRentingSystem.Controllers
             };
 
             return View(model);
-
-
         }
 
         [HttpPost]
@@ -133,7 +131,7 @@ namespace CarRentingSystem.Controllers
 
             int newCarId = await carService.CreateAsync(model, dealerId ?? 0);
 
-            return RedirectToAction(nameof(Details), new {id = newCarId});
+            return RedirectToAction(nameof(All));
         }
 
         [HttpGet]
