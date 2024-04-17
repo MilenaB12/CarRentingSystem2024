@@ -425,11 +425,11 @@ namespace CarRentingSystem.Tests
         }
 
         [Test]
-        public async Task GetApprovedAsyncShouldReturnCorrectCars()
+        public async Task GetUnApprovedAsyncShouldReturnCorrectCars()
         {
 
-            var result = await carService.GetApprovedAsync();
-            var approvedCars = await data.Cars.Where(c => c.IsApproved == true).ToListAsync();
+            var result = await carService.GetUnApprovedAsync();
+            var approvedCars = await data.Cars.Where(c => c.IsApproved == false).ToListAsync();
 
             Assert.IsNotNull(result);
             Assert.That(result.Count(), Is.EqualTo(approvedCars.Count()));

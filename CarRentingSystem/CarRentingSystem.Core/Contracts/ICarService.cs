@@ -56,7 +56,7 @@ namespace CarRentingSystem.Core.Contracts
 
         Task LeaveAsync(int carId, string userId);
 
-        Task<IEnumerable<CarServiceModel>> GetApprovedAsync();
+        Task<IEnumerable<CarServiceModel>> GetUnApprovedAsync();
 
         Task ApproveCarAsync(int carId);
 

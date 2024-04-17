@@ -1,9 +1,4 @@
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/bin/Debug/net6.0/CoverletSourceRootsMapping
-/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/obj/Debug/net6.0/CarRentingSystem.Tests.csproj.AssemblyReference.cache
-/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/obj/Debug/net6.0/CarRentingSystem.Tests.GeneratedMSBuildEditorConfig.editorconfig
-/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/obj/Debug/net6.0/CarRentingSystem.Tests.AssemblyInfoInputs.cache
-/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/obj/Debug/net6.0/CarRentingSystem.Tests.AssemblyInfo.cs
-/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/obj/Debug/net6.0/CarRentingSystem.Tests.csproj.CoreCompileInputs.cache
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/bin/Debug/net6.0/Microsoft.TestPlatform.PlatformAbstractions.dll
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/bin/Debug/net6.0/NUnit3.TestAdapter.dll
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/bin/Debug/net6.0/NUnit3.TestAdapter.pdb
@@ -138,6 +133,11 @@
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/bin/Debug/net6.0/CarRentingSystem.Infrastructure.dll
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/bin/Debug/net6.0/CarRentingSystem.Core.pdb
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/bin/Debug/net6.0/CarRentingSystem.Infrastructure.pdb
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/obj/Debug/net6.0/CarRentingSystem.Tests.csproj.AssemblyReference.cache
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/obj/Debug/net6.0/CarRentingSystem.Tests.GeneratedMSBuildEditorConfig.editorconfig
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/obj/Debug/net6.0/CarRentingSystem.Tests.AssemblyInfoInputs.cache
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/obj/Debug/net6.0/CarRentingSystem.Tests.AssemblyInfo.cs
+/Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/obj/Debug/net6.0/CarRentingSystem.Tests.csproj.CoreCompileInputs.cache
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/obj/Debug/net6.0/CarRentingSystem.Tests.csproj.CopyComplete
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/obj/Debug/net6.0/CarRentingSystem.Tests.dll
 /Users/milenaboyadzhieva/Desktop/CarRentingSystem2024/CarRentingSystem/CarRentingSystem.Tests/obj/Debug/net6.0/refint/CarRentingSystem.Tests.dll

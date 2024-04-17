@@ -16,7 +16,7 @@ namespace CarRentingSystem.Areas.Admin.Controllers
 		[HttpGet]
 		public async Task<IActionResult> Approve()
 		{
-			var model = await carService.GetApprovedAsync();
+			var model = await carService.GetUnApprovedAsync();
 
 			return View(model);
 		}

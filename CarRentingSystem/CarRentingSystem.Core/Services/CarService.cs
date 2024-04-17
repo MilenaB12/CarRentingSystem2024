@@ -225,7 +225,7 @@ namespace CarRentingSystem.Core.Services
                 .AnyAsync(c => c.Id == id);
         }
 
-        public async Task<IEnumerable<CarServiceModel>> GetApprovedAsync()
+        public async Task<IEnumerable<CarServiceModel>> GetUnApprovedAsync()
         {
             return await repository.AllReadOnly<Car>()
                 .Where(c => c.IsApproved == false)
